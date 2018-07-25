@@ -6,12 +6,24 @@ en:
       categories: "Categories"
       submit: "Search"
       login: "Login"
-      signup: "Signup"
+      account: "Account"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Logout"
 
   shared:
     error_messages:
       error: "The form contains"
       pluralize: "error"
+
+  sessions:
+    new:
+      title: "Please login"
+      remember_me: "Remember me"
+      submit: "Login"
+      signup: "Signup now!"
+    create:
+      danger: "Invalid email/password combination"
   users:
     new:
       title: "Register"
@@ -20,4 +32,3 @@ en:
     create:
       success: "Create user success."
       danger: "Create user not success"
-

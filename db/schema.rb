@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 2018_07_24_081208) do
+ActiveRecord::Schema.define(version: 2018_07_25_093317) do
 
   create_table "author_books", force: :cascade do |t|
     t.integer "book_id"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 2018_07_24_081208) do
     t.integer "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "remember_digest"
   end
 
 end
