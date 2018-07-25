@@ -7,3 +7,17 @@ en:
       submit: "Search"
       login: "Login"
       signup: "Signup"
+
+  shared:
+    error_messages:
+      error: "The form contains"
+      pluralize: "error"
+  users:
+    new:
+      title: "Register"
+      button: "Create account user"
+      confirmation: "Confirmation password"
+    create:
+      success: "Create user success."
+      danger: "Create user not success"
+
