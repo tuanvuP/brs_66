@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  before_action :load_user, except: %i(index new create)
+  before_action :correct_user, :logged_in_user, only: %i(edit update)
+
+  def index
+  end
+
   def new
     @user = User.new
   end
@@ -12,6 +18,17 @@ class UsersController < ApplicationController
     else
       flash[:danger] = t ".danger"
       render :new
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @user&.update_attributes user_params
+      flash[:success] = t ".update_success"
+      redirect_to @user
+    else
+      render :edit
     end
   end
 

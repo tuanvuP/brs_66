@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_reader :remember_token
+  attr_accessor :remember_token
 
   has_many :rates
   has_many :comments
@@ -48,5 +48,9 @@ class User < ApplicationRecord
 
   def forget
     update_attributes remember_digest: nil
+  end
+
+  def current_user? user
+    user == self
   end
 end
