@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  root "books#index"
   get "/help", to: "static_pages#help"
-  resources :users, only: %i(new create)
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  root "static_pages#home"
+  resources :users, only: %i(new create)
+  resources :books, only: :index
 end

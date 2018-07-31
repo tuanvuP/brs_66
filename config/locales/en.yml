@@ -63,7 +63,12 @@ en:
     help:
       about_blog: "ABOUT THE BOOK BLOG"
       des: "This is product by M&H - A project 1"
-      des_behave: "In this blog, you can read and find a lot of kind of book, 
+      des_behave: "In this blog, you can read and find a lot of kind of book,
         follow other user, follow and lind the book which you like the most"
       quotes: "Book are a uniquely portable magic."
       author_quotes: "Stephen King"
+
+  books:
+    index:
+      title: "List books"
+      $: "$"
