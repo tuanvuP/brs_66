@@ -16,3 +16,10 @@
     </div>
   </div>
 </div>
+<h3><%= t ".comment" %> (<%= @book.comments.count %>)</h3>
+<div class="row">
+  <%= render "comment_form" %>
+</div>
+<div class="comment">
+  <%= render @comments %>
+</div>

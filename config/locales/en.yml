@@ -106,3 +106,14 @@ en:
       $: "$"
     load_book:
       danger: "Not find book!"
+    comment_form:
+      submit: "Comment"
+    show:
+      comment: "Comment"
+
+  comments:
+    comment:
+      commented: "Commented"
+      ago: "ago."
+    load_comment:
+      danger: "Not find commnet!"
