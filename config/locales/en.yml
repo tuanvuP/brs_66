@@ -118,9 +118,12 @@ en:
       edit: "Edit"
       delete: "Delete"
       confirm: "You sure delete?"
+      reply: "Reply"
     load_comment:
       danger: "Not find commnet!"
     edit:
       submit: "Save"
     update:
       danger: "Update comment not success!"
+    new_reply:
+      submit: "Reply"
