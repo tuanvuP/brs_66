@@ -78,6 +78,25 @@ en:
       edit: "Edit"
       delete: "Delete"
       confirm: "You sure delete?"
+      create: "Add new category"
+    new:
+      title: "Create new category"
+      button: "Create"
+    form:
+      description: "Description category"
+      back: "Back"
+    edit:
+      title: "Edit category"
+      button: "Save"
+    create:
+      success: "Create category success."
+      danger: "Create category not success."
+    update:
+      success: "Update category success."
+      danger: "Update category not success."
+    destroy:
+      success: "Delete category success."
+      danger: "Delete category not success."
     load_categroy:
       danger: "Not find category!"
 

@@ -1,5 +1,8 @@
 <% provide :title, t(".categories") %>
 <h1><%= t ".categories" %></h1>
+<div class="form-group">
+  <%= link_to t(".create"), new_category_path, class: "btn btn-info" %>
+</div>
 <%= paginate @categories, theme: "twitter-bootstrap-3"%>
 <table class="table table-bordered">
   <thead>
