@@ -199,3 +199,32 @@ footer a:hover {
   font-weight: bold;
   color: $red;
 }
+
+.show-book {
+  height: 350px;
+  width: 350px;
+}
+
+.title-book {
+  font-size: 30px;
+  font-weight: bold;
+  color: $black;
+}
+
+.title {
+  border-bottom: 2px solid $red;
+  margin-left: -80px;
+}
+
+.description {
+  padding-top: 20px;
+  margin-left: -80px;
+  color: $black;
+}
+
+.index-book {
+  margin-top: 20px;
+  border: 1px solid $color_eastern_blue_approx;
+  margin-right: 1px;
+  padding: 4px;
+}

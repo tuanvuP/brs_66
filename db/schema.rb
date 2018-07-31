@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_25_093317) do
+ActiveRecord::Schema.define(version: 2018_08_01_062957) do
 
   create_table "author_books", force: :cascade do |t|
     t.integer "book_id"
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 2018_07_25_093317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "remember_digest"
+    t.boolean "admin"
   end
 
 end

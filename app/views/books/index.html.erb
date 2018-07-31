@@ -2,10 +2,12 @@
 <div class="row">
   <% @books.each do |book| %>
     <div class="col-md-3">
-      <%= image_tag book.image, class: "book" %>
+      <div class="index-book">
+        <%= image_tag book.image, class: "book" %>
       <div class="content-book">
-        <%= link_to book.name, "#" %>
+        <%= link_to book.name, book %>
         <p class="price"><%= book.price %> <%= t ".$" %></p>
+      </div>
       </div>
     </div>
   <% end %>
