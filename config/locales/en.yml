@@ -2,7 +2,6 @@ en:
   layouts:
     header:
       app_name: "Books Reviewing"
-      books: "Books"
       categories: "Categories"
       submit: "Search"
       login: "Login"
@@ -10,6 +9,9 @@ en:
       profile: "Profile"
       settings: "Settings"
       logout: "Logout"
+      help: "HELP"
+    footer:
+      copyright: "@Coyright M,H , Book Review"
 
   shared:
     error_messages:
@@ -27,8 +29,41 @@ en:
   users:
     new:
       title: "Register"
-      button: "Create account user"
-      confirmation: "Confirmation password"
+      button: "Create account"
     create:
       success: "Create user success."
       danger: "Create user not success"
+    update:
+      update_success: "Profile updated"
+    edit:
+      title: "Udate User"
+      change: "Change"
+      button_text: "Save change"
+    form:
+      confirmation: "Confirmation!"
+      creates: "Create"
+    index:
+      index_admin: "You are in index for admin"
+  application:
+    load_user:
+      not_exist: "This user not not exist"
+    logged_in_user:
+      not_login: "Please log in."
+    verify_admin:
+      should_login: "You should login"
+
+  static_pages:
+    home:
+      slogan: "Blow your mind"
+      book: "Book"
+      blog: "Blog"
+      company: "Framgia Inc"
+      start: "Let's start"
+      sign_up: "Sign up now!"
+    help:
+      about_blog: "ABOUT THE BOOK BLOG"
+      des: "This is product by M&H - A project 1"
+      des_behave: "In this blog, you can read and find a lot of kind of book, 
+        follow other user, follow and lind the book which you like the most"
+      quotes: "Book are a uniquely portable magic."
+      author_quotes: "Stephen King"

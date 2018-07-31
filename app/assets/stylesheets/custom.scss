@@ -1,5 +1,6 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'color.scss';
 
 /* typography */
 
@@ -14,6 +15,11 @@ h1 {
   text-align: center;
 }
 
+.center {
+  margin-top: 30px;
+  text-align: center;
+}
+
 #error_explanation {
   color: red;
   ul {
@@ -24,4 +30,146 @@ h1 {
 
 .checkbox {
   padding-left: 20px;
+}
+
+body {
+  font: 400 15px/1.8 Lato, sans-serif;
+  color: $dark-blue;
+}
+
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+header {
+  color: $white;
+  text-align: center;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background: url(asset-path('cover.jpg')) 0px 0px;
+  min-height: 75%;
+  width: 100%;
+}
+
+.container {
+  padding: 80px 120px;
+}
+
+.nav-tabs li a {
+  color: $dark-blue;
+}
+
+.navbar {
+  font-family: Montserrat, sans-serif;
+  margin-bottom: 0;
+  background-color: $dark-grey;
+  border: 0;
+  font-size: 11px !important;
+  letter-spacing: 4px;
+  opacity: 0.9;
+}
+
+.navbar li a, .navbar .navbar-brand { 
+  color: $light-grey !important;
+}
+
+.navbar-nav li a:hover {
+  color: $blue !important;
+}
+
+.navbar-nav li.active a {
+  color: $blue !important;
+  background-color: $light-black !important;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+}
+
+.open .dropdown-toggle {
+  color: $blue;
+  background-color: $black-pur !important;
+}
+
+.dropdown-menu li a {
+  color: $black !important;
+}
+
+.dropdown-menu li a:hover {
+  background-color: red !important;
+}
+
+.w3-container, .w3-panel {
+  padding: 0.01em 16px;
+}
+
+.w3-content {
+  Smax-width: 980px;
+  margin: auto;
+  max-width: 700px;
+}
+
+.w3-padding-64 {
+  padding-top: 64px!important;
+  padding-bottom: 64px!important;
+}
+
+.w3-center {
+  text-align: center!important;
+}
+
+.w3-badge, .w3-tag {
+  background-color: $black;
+  color: $blue;
+  display: inline-block;
+  padding: 0 8px;
+  text-align: center;
+}
+.w3-wide {
+  letter-spacing: 4px;
+}
+
+.w3-panel {
+  margin: 16px 0 16px;
+}
+
+.w3-leftbar {
+  border-left: 6px solid $blue-pur !important;
+}
+
+.w3-light-grey {
+  color: $black !important;
+  background-color: #f1f1f1!important;
+}
+
+.w3-parents{
+  width: 100%;
+}
+
+.image_help {
+  margin-top: 16px!important;
+  width: 100%;
+}
+
+.w3-book-blog {
+  font-size: 90px;
+}
+
+footer {
+  background-color: $d-grey;
+  color: $white-m;
+  padding: 32px;
+}
+
+footer a {
+  color: $white-m;
+}
+
+footer a:hover {
+  color: $dark-blue;
+  text-decoration: none;
 }

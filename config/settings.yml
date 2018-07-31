@@ -5,6 +5,5 @@ user:
     length: 255
   password:
     length: 6
-
 session:
   remember: 1

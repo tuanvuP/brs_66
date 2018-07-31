@@ -1,0 +1,16 @@
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag"><%= t ".slogan" %></span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white w3-book-blog"><%= t ".book" %><br><%= t ".blog" %></span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white"><%= t ".company" %></span>
+  </div>
+</header>
+<div class="center jumbotron">
+  <h1><%= t ".start" %></h1>
+
+  <%= link_to t(".sign_up"), new_user_path, class: "btn btn-lg btn-primary" %>
+</div>
