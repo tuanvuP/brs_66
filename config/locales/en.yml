@@ -68,7 +68,22 @@ en:
       quotes: "Book are a uniquely portable magic."
       author_quotes: "Stephen King"
 
+  categories:
+    index:
+      categories: "List categories"
+      stt: "STT"
+      title: "Title"
+      description: "Description"
+      active: "Active"
+      edit: "Edit"
+      delete: "Delete"
+      confirm: "You sure delete?"
+    load_categroy:
+      danger: "Not find category!"
+
   books:
     index:
       title: "List books"
       $: "$"
+    load_book:
+      danger: "Not find book!"

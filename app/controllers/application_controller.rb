@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :load_user, only: :correct_user 
+  before_action :load_user, only: :correct_user
 
   include SessionsHelper
 
@@ -18,5 +18,9 @@ class ApplicationController < ActionController::Base
     return if logged_in?
     flash[:danger] = t ".not_login"
     redirect_to login_url
+  end
+
+  def verify_admin
+    redirect_to root_url unless current_user.admin?
   end
 end

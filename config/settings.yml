@@ -8,5 +8,4 @@ user:
 session:
   remember: 1
 
-book:
-  per_page: 20
+per_page: 20
