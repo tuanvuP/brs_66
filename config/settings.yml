@@ -9,3 +9,8 @@ session:
   remember: 1
 
 per_page: 20
+
+category:
+  title:
+    length: 255
+  rows: 5

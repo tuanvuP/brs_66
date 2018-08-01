@@ -25,6 +25,25 @@ class CategoriesController < ApplicationController
 
   def edit; end
 
+  def update
+    if @category.update_attributes category_params
+      flash[:success] = t ".success"
+      redirect_to categories_path
+    else
+      flash[:danger] = t ".danger"
+      render :edit
+    end
+  end
+
+  def destroy
+    if @category.destroy
+      flash[:success] = t ".success"
+    else
+      flash[:danger] = t ".danger"
+    end
+    redirect_to categories_path
+  end
+
   private
 
   def category_params
