@@ -7,3 +7,6 @@ user:
     length: 6
 session:
   remember: 1
+
+book:
+  per_page: 20
