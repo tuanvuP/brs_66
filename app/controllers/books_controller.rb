@@ -6,7 +6,10 @@ class BooksController < ApplicationController
                  .per Settings.per_page
   end
 
-  def show; end
+  def show
+    @comments = @book.comments.all
+    @comment = @book.comments.build
+  end
 
   private
 

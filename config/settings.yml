@@ -14,3 +14,11 @@ category:
   title:
     length: 255
   rows: 5
+
+comment:
+  rows: 3
+  minimum: 1
+  maximum: 255
+
+user_helper:
+  size: 20
