@@ -14,6 +14,34 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    respond_to do |format|
+      format.html {redirect_to @comment.book}
+      format.js
+    end
+  end
+
+  def update
+    if @comment.update_attributes comment_params
+      respond_to do |format|
+        format.html {redirect_to @comment.book}
+        format.js
+      end
+    else
+      flash[:danger] = t ".danger"
+      render :edit
+    end
+  end
+
+  def destroy
+    if @comment.destroy
+      respond_to do |format|
+        format.html {redirect_to @comment.book}
+        format.js
+      end
+    end
+  end
+
   private
 
   def comment_params

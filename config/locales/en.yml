@@ -115,5 +115,12 @@ en:
     comment:
       commented: "Commented"
       ago: "ago."
+      edit: "Edit"
+      delete: "Delete"
+      confirm: "You sure delete?"
     load_comment:
       danger: "Not find commnet!"
+    edit:
+      submit: "Save"
+    update:
+      danger: "Update comment not success!"
