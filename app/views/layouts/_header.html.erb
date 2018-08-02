@@ -20,6 +20,7 @@
         <% if logged_in? %>
           <% if current_user.admin? %>
             <li><%= link_to t(".categories"), categories_path %></li>
+            <li><%= link_to t(".author"), admin_authors_path %></li>
           <% end %>
           <li class="dropdown">
             <%= link_to "#", class: "dropdown-toggle", "data-toggle": "dropdown" do %>
