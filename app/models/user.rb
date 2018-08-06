@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
-  has_many :rates
   has_many :comments
   has_many :likes
   has_many :mark_books
@@ -20,6 +19,8 @@ class User < ApplicationRecord
     length: {minimum: Settings.user.password.length}, allow_nil: true
 
   has_secure_password
+
+  ratyrate_rater
 
   class << self
     def digest string

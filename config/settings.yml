@@ -22,3 +22,9 @@ comment:
 
 user_helper:
   size: 20
+
+book:
+  per_page: 8
+
+rate:
+  stars: 5

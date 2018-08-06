@@ -113,6 +113,7 @@ en:
       submit: "Comment"
     show:
       comment: "Comment"
+      level: "Rating:"
     like:
       like: "Like"
       and: "You and "

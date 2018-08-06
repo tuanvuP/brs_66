@@ -18,6 +18,7 @@ gem "kaminari"
 gem "pg_search"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.0"
+gem "ratyrate"
 gem "rubocop", "~> 0.55.0", require: false
 gem "sass-rails", "~> 5.0"
 gem "sqlite3"
