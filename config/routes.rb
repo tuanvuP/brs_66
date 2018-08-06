@@ -13,4 +13,5 @@ Rails.application.routes.draw do
       get :new_reply
     end
   end
+  resources :likes, expect: :index
 end
