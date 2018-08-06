@@ -1,6 +1,7 @@
 en:
   layouts:
     header:
+      author: "Author"
       app_name: "Books Reviewing"
       categories: "Categories"
       submit: "Search"
@@ -142,3 +143,33 @@ en:
       danger: "Please try again!"
     destroy:
       danger: "Please try again!"
+
+  admin:
+    authors:
+      create:
+        success: "Create Author Success"
+        error: "Create author fail"
+      new:
+        title: "Create author"
+        button: "Create"
+      edit:
+        title: "Update author"
+        button: "Update"
+      load_author:
+        not_exist: "This Author is not exist"
+      index:
+        title: "Authors"
+        ls_au: "List Authors"
+        create: "Create new author"
+        stt: "STT"
+        date_of_birth: "Birth"
+        active: "Active"
+        phone: "Phone"
+        address: "Address"
+      form:
+        creates: "Creates"
+      update:
+        update_success: "Update success"
+        error: "Update fail"
+    verify_admin:
+      danger: "You are not admin, Please signin again"
