@@ -19,4 +19,6 @@ Rails.application.routes.draw do
     end
   end
   resources :likes, expect: :index
+  post "/rate", to: "rater#create", as: "rate"
+
 end

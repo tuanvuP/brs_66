@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.list_book.page(params[:page])
-                 .per Settings.per_page
+                 .per Settings.book.per_page
   end
 
   def show

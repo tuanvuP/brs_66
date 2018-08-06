@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
   before_action :load_category, except: %i(index new create)
-  before_action :verify_admin, except: :show
 
   def index
     @categories = Category.list_category

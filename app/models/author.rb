@@ -6,6 +6,6 @@ class Author < ApplicationRecord
   validates :phone, presence: true
   validates :address, presence: true
 
-  scope :list_author, ->{select("name, phone, address").
+  scope :list_author, ->{select("name, phone, address, brith_year").
     order name: :asc}
 end

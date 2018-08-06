@@ -16,6 +16,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery.raty
+//= require ratyrate
 
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
