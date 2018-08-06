@@ -2,12 +2,15 @@ class Book < ApplicationRecord
   include Filterable
 
   belongs_to :categories, optional: true
-  has_many :author_books
   has_many :comments, dependent: :destroy
   has_many :likes
   has_many :mark_books
   has_many :order_detail
   has_many :favorites
+  has_many :author_books, dependent: :destroy
+  has_many :authors, through: :author_books
+
+  accepts_nested_attributes_for :author_books
 
   ratyrate_rateable "rating"
 
@@ -18,6 +21,22 @@ class Book < ApplicationRecord
 
   scope :search_name, -> search_name {where "name LIKE ?", "%#{search_name}%"}
   scope :category_id, -> category_id {where category_id: category_id}
+  scope :order_by, ->{order created_at: :desc}
+
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :image, presence: true
+  validates :publish_date, presence: true
+  validates :price, presence: true
+  validates :category_id, presence: true
+
+  mount_uploader :image, ImageUploader
+
+  class << self
+    def search key
+      where("name LIKE ? OR description LIKE ?", "%#{key}%", "%#{key}%")
+    end
+  end
 
   def get_item id
     self.find_by(id: id)

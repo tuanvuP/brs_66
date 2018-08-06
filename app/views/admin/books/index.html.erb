@@ -1,0 +1,52 @@
+<% provide :title, t(".books") %>
+<h1><%= t ".books" %></h1>
+<div class="row col-sm-12">
+  <div class="col-sm-4">
+    <%= link_to t(".create"), new_admin_book_path, class: "btn btn-info" %>
+  </div>
+  <div class="col-sm-8">
+    <%= form_tag admin_books_path, method: "get", enforce_utf8: false do %>
+      <div class="row">
+        <div class="col-sm-10">
+          <%= text_field_tag :search, params[:search], class: "form-control" %>
+        </div>
+        <div class="col-sm-2">
+          <%= submit_tag t(".search"), name: nil, class: "btn btn-info" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</br>
+<%= paginate @books, theme: "twitter-bootstrap-3" %>
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th><%= t ".stt" %></th>
+      <th><%= t ".name" %></th>
+      <th><%= t ".description" %></th>
+      <th><%= t ".image" %></th>
+      <th><%= t ".publish_date" %></th>
+      <th><%= t ".price" %></th>
+      <th class="table-th" colspan="2" ><%= t ".active" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each_with_index do |book, index| %>
+      <tr>
+        <td>
+          <%= create_index params[:page], index,
+            Settings.per_page %>
+        </td>
+        <td><%= link_to book.name, book %></td>
+        <td><%= book.description %></td>
+        <td><%= image_tag book.image_url.to_s, class: "image" %>
+        </td>
+        <td><%= book.publish_date %></td>
+        <td><%= book.price %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @books, theme: "twitter-bootstrap-3" %>

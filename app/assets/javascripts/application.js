@@ -15,10 +15,12 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require jquery.raty
 //= require ratyrate
+//= require chosen
+//= require_tree .
+
 
 $(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip();
+  $('[data-toggle='tooltip']').tooltip();
 })

@@ -7,6 +7,7 @@ gem "bcrypt", "3.1.11"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap-kaminari-views"
 gem "bootstrap-sass", "3.3.7"
+gem "carrierwave"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "faker"
@@ -15,6 +16,7 @@ gem "i18n-js"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "kaminari"
+gem "mini_magick"
 gem "pg_search"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.0"
@@ -45,3 +47,8 @@ group :test do
 end
 
 gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
+
+source "https://rails-assets.org" do
+  gem "rails-assets-chosen"
+  gem "rails-assets-chosen-bootstrap"
+end
