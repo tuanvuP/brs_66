@@ -2,7 +2,9 @@ class Admin::AuthorsController < Admin::AdminController
   before_action :load_author, except: %i(index new create)
 
   def index
-    @authors = Author.list_author.page(params[:page]).per Settings.per_page
+    @authors = Author.search(params[:search])
+                     .page(params[:page])
+                     .per Settings.per_page
   end
 
   def new
@@ -27,7 +29,7 @@ class Admin::AuthorsController < Admin::AdminController
   def update
     if @author.update_attributes author_params
       flash[:success] = t ".update_success"
-      redirect_to admin_author_path
+      redirect_to admin_authors_path
     else
       flash[:error] = t ".error"
       render :edit

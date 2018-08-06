@@ -22,5 +22,4 @@ Rails.application.routes.draw do
   post "/rate", to: "rater#create", as: "rate"
   resources :mark_books, only: %i(create update)
   resources :favorites
-
 end

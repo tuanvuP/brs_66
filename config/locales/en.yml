@@ -10,7 +10,7 @@ en:
       profile: "Profile"
       settings: "Settings"
       logout: "Logout"
-      help: "HELP"
+      help: "Help"
     footer:
       copyright: "@Coyright M,H , Book Review"
 
@@ -80,6 +80,7 @@ en:
       delete: "Delete"
       confirm: "You sure delete?"
       create: "Add new category"
+      search: "Search"
     new:
       title: "Create new category"
       button: "Create"
@@ -126,6 +127,8 @@ en:
       favorites: "Favorite"
     unfavorite:
       favorites: "Mark as Favorite"
+    search:
+      search: "Search"
 
   mark_books:
     mark_book:
@@ -182,6 +185,7 @@ en:
         active: "Active"
         phone: "Phone"
         address: "Address"
+        search: "Search"
       form:
         creates: "Creates"
       update:
