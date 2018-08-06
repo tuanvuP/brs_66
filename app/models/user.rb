@@ -4,9 +4,11 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes
   has_many :mark_books
+  has_many :favorites
   has_many :orders
   has_many :follows
   has_many :liked, through: :likes, source: :book
+  has_many :favorited, through: :favorites, source: :book
 
   validates :username, presence: true,
    length: {maximum: Settings.user.name.length}
@@ -70,5 +72,17 @@ class User < ApplicationRecord
 
   def current_like book
     likes.find_by book_id: book.id
+  end
+
+  def favorited? book
+    favorited.include? book
+  end
+
+  def favorite book
+    favorited << book
+  end
+
+  def current_favorite book
+    favorites.find_by book_id: book.id
   end
 end
