@@ -5,6 +5,7 @@ class Book < ApplicationRecord
   has_many :likes
   has_many :mark_books
   has_many :order_detail
+  has_many :favorites
 
   scope :list_book, ->{select :id, :name, :image, :price,
                         :category_id, :created_at}

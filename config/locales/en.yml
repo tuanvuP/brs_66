@@ -113,14 +113,29 @@ en:
       submit: "Comment"
     show:
       comment: "Comment"
-      level: "Rating:"
+      level: "Rate this book"
+      mark: "Mark this book"
     like:
       like: "Like"
       and: "You and "
       other: "other user liked."
     unlike:
-      like: "Like"
+      like: "Dislike"
       other: "other user liked."
+    favorite:
+      favorites: "Favorite"
+    unfavorite:
+      favorites: "Mark as Favorite"
+
+  mark_books:
+    mark_book:
+      unread: "Unread"
+      read: "Read"
+      reading: "Reading"
+
+  favorites:
+    create:
+      danger: "Please try again!"
 
   comments:
     comment:
