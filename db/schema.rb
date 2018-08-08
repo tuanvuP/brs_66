@@ -111,8 +111,8 @@ ActiveRecord::Schema.define(version: 2018_08_08_231118) do
   create_table "order_details", force: :cascade do |t|
     t.integer "order_id"
     t.integer "book_id"
-    t.string "quantity"
-    t.string "current_price"
+    t.integer "quantity"
+    t.float "current_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_order_details_on_book_id"

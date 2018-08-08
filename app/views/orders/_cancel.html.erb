@@ -1,0 +1,9 @@
+<strong><%= t ".total_money" %> <%= order.total %> </strong>
+<div class="btn-cancel">
+<% if order.status == "unchecked" %>
+  <%= link_to t(".cancel"), order_path(order.id, params.permit().merge(status: :canceled)),
+    method: :put, class: "btn btn-default" %>
+<% else %>
+  <button class="btn btn-secondary btn-lg" disabled><%= t ".canceled" %></button>
+<% end %>
+</div>

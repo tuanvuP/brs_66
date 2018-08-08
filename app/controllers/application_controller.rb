@@ -18,9 +18,6 @@ class ApplicationController < ActionController::Base
 
   def load_book
     @book = Book.find_by id: params[:book_id]
-    return if @book.present?
-    flash[:danger] = t ".not_found_book"
-    redirect_to rooth_path
   end
 
   def logged_in_user

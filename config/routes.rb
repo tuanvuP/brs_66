@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       post :update_quantity
     end
   end
+  resources :orders
   resources :categories
   resources :comments
   resources :comments do
@@ -30,7 +31,6 @@ Rails.application.routes.draw do
   post "/rate", to: "rater#create", as: "rate"
   resources :mark_books, only: %i(create update)
   resources :favorites
-
   resources :orders, only: %i(index new create destroy)
 
   namespace :admin do

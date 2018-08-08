@@ -2,7 +2,7 @@
   before_action :logged_in_user,:check_cart, only: %i(new create)
 
   def index
-    @orders = Order.all
+    @orders = Order.by_id current_user.id
   end
 
   def new
@@ -16,11 +16,17 @@
       @order.save!
       session[:cart].each do |key, val|
         @order_detail = OrderDetail.create! book_id: key.to_i,
-          order_id: @order.id, quantity: val, current_price: get_item(key.to_i).price
+          order_id: @order.id, quantity: val, current_price: load_item(key.to_i).price
       end
     end
     session.delete :cart
     flash[:success] = t ".create_order_success"
+    redirect_to orders_path
+  end
+
+  def update
+    @order = Order.find_by id: params[:id]
+    @order.update_attributes status: params[:status]
     redirect_to orders_path
   end
 

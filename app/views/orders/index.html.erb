@@ -4,32 +4,30 @@
 <div class="row full-screen">
   <% if @orders %>
     <div class="order-summary">
-      <div class="">
-  	    <% @orders.each do |order| %>
-          <table class="table">
+	    <% @orders.each do |order| %>
+        <table class="table table-hover">
           <tr><%= order.status%></tr>
-            <thead>
-              <tr>
-                <td><%= t ".book" %></td>
-                <td><%= t ".quantity" %></td>
-                <td><%= t ".total" %></td>
-              </tr>
-            </thead>
-            <tbody>
+          <thead class="thead-dark">
+            <tr>
+              <td><%= t ".book" %></td>
+              <td><%= t ".quantity" %></td>
+              <td><%= t ".total" %></td>
+            </tr>
+          </thead>
+          <tbody>
             <% order.order_details.each do |detail| %>
               <tr>
-                <td><%= get_item(detail.book_id).name %></td>
+                <td><%= load_item(detail.book_id).name %></td>
                 <td><%= detail.quantity %></td>
                 <td><%= total_each_order_detail(detail) %></td>
               </tr>
-            </tbody>
             <% end %>
-          </table>  
-          <div class="order-col">
-            <div><strong><%= t ".total_money" %> <%= order.total %> </strong></div>
-          </div>
-        <% end %>
-      </div>
+          </tbody>
+        </table>  
+        <div class="order-col" id="order-<%= order.id %>">
+          <%= render partial: "cancel", locals: {order: order} %>
+        </div>
+	    <% end %>
     </div>
   <% else %>
 	  <p><%= t ".p" %></p>
