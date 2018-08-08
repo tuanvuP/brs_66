@@ -1,0 +1,31 @@
+  class OrdersController < ApplicationController
+  before_action :logged_in_user,:check_cart, only: %i(new create)
+
+  def index
+    @orders = Order.all
+  end
+
+  def new
+    @order = Order.new
+  end
+
+  def create
+    @order = Order.new order_params
+    @order.total = total_money
+    @flag = ActiveRecord::Base.transaction do
+      @order.save!
+      session[:cart].each do |key, val|
+        @order_detail = OrderDetail.create! book_id: key.to_i,
+          order_id: @order.id, quantity: val, current_price: get_item(key.to_i).price
+      end
+    end
+    session.delete :cart
+    flash[:success] = t ".create_order_success"
+    redirect_to orders_path
+  end
+
+  private
+  def order_params
+    params.require(:order).permit :full_name, :phone, :address, :user_id, :status
+  end
+end

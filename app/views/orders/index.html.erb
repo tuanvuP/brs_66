@@ -1,0 +1,37 @@
+<% provide :title, t(".title") %>
+<h2><%= t ".your_order" %></h2>
+
+<div class="row full-screen">
+  <% if @orders %>
+    <div class="order-summary">
+      <div class="">
+  	    <% @orders.each do |order| %>
+          <table class="table">
+          <tr><%= order.status%></tr>
+            <thead>
+              <tr>
+                <td><%= t ".book" %></td>
+                <td><%= t ".quantity" %></td>
+                <td><%= t ".total" %></td>
+              </tr>
+            </thead>
+            <tbody>
+            <% order.order_details.each do |detail| %>
+              <tr>
+                <td><%= get_item(detail.book_id).name %></td>
+                <td><%= detail.quantity %></td>
+                <td><%= total_each_order_detail(detail) %></td>
+              </tr>
+            </tbody>
+            <% end %>
+          </table>  
+          <div class="order-col">
+            <div><strong><%= t ".total_money" %> <%= order.total %> </strong></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+	  <p><%= t ".p" %></p>
+  <% end %>
+</div>
