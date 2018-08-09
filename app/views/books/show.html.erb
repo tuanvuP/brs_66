@@ -21,9 +21,15 @@
         <div class="mark-form col-sm-2">
           <%= render "mark_books/mark_book", mark_book: @mark_book %>
         </div>
-        <div class="col-sm-2">
+        <div class="favorite_form col-sm-2">
           <%= render "favorite_form" %>
         </div>
+      </div>
+    <% end %>
+    </br>
+    <% if logged_in? %>
+      <div class="add-to-cart">
+        <%= link_to link_to t(".add_cart"), add_cart_path(@book), class: "btn btn-primary" %>
       </div>
     <% end %>
     <hr>
@@ -40,16 +46,10 @@
       <hr>
       <%= @book.description %>
     </div>
-    <% if logged_in? %>
-      <div class="add-to-cart">
-        <%= link_to link_to t(".add_cart"), add_cart_path(@book), class: "btn btn-primary" %>
-      </div>
-    <% end %>
   </div>
 </div>
 <h3><%= t ".comment" %> (<%= @book.comments.count %>)</h3>
-<div class="row">
-  <%= render "comment_form" %>
-</div>
+<%= render "comment_form" %>
+</br>
 <div class="comment"></div>
 <%= render @comments %>

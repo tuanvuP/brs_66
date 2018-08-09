@@ -1,12 +1,12 @@
 <div class="media" id= "root-comment-<%= comment.id %>">
   <a class="pull-left" href="<%= user_path(comment.user) %>">
-    <%= gravatar_for(comment.user, "avatar_comment") %>
+    <%= image_tag comment.user.avatar_url.to_s, class: "image_cm" %>
   </a>
   <div class="media-body" id = "comment-<%= comment.id %>">
-    <h4 class="media-heading"><%= link_to comment.user.username, comment.user %>
+    <span class="media-heading"><%= link_to comment.user.username, comment.user %>
       <small><%= t(".commented") + " " + time_ago_in_words(comment.created_at) +
         " " + t(".ago") %></small>
-    </h4>
+    </span>
     <div id = "content-<%= comment.id %>">
       <p><%= comment.content %></p>
     </div>

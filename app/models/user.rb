@@ -24,6 +24,8 @@ class User < ApplicationRecord
 
   ratyrate_rater
 
+  mount_uploader :avatar, ImageUploader
+
   class << self
     def digest string
       cost =
@@ -37,6 +39,10 @@ class User < ApplicationRecord
 
     def new_token
       SecureRandom.urlsafe_base64
+    end
+
+    def search key
+      where("username LIKE ? OR email LIKE ?", "%#{key}%", "%#{key}%")
     end
   end
 

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :authors, except: :destroy
   end
 
-  resources :users, except: %i(destroy show)
+  resources :users, except: :destroy
   resources :books, only: %i(index show)
   resources :carts, only: :index
   resources :carts do

@@ -22,16 +22,13 @@
   </div>
   <div class="form-group">
     <%= f.label :category_id %>
-    <%= f.select :category_id, options_from_collection_for_select(Category.all,
-      "id", "title"), {include_blank: true}, {class: "chosen-select"} %>
+    <%= f.select :category_id, options_for_select(@categories.map{|key, value|
+      [key, value]}), {include_blank: true}, {class: "chosen-select"} %>
   </div>
   <div class="form-group">
     <%= f.label :author_id %>
-    <%= f.fields_for :author_books do |ff| %>
-      <%= ff.label :author_id %>
-      <%= ff.select :author_id, options_from_collection_for_select(Author.all,
-        "id", "name"), {include_blank: true}, {class: "chosen-select"} %>
-    <% end %>
+    <%= f.select :author_ids, options_for_select(@authors.map{|key, value|
+      [key, value]}), {include_blank: true}, {class: "chosen-select", multiple: "true"} %>
   </div>
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
   <%= link_to t(".back"), admin_books_path, class: "btn btn-info" %>

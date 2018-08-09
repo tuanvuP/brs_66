@@ -4,7 +4,7 @@
 
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h4, h5, h6 {
   line-height: 1;
   text-align: center;
 }
@@ -229,6 +229,7 @@ footer a:hover {
   border: 1px solid $color_eastern_blue_approx;
   margin-right: 1px;
   padding: 4px;
+  width: 200px;
 }
 
 .rate-book {
@@ -242,7 +243,7 @@ footer a:hover {
 }
 
 .mark-form {
-  margin-left: 100px;
+  margin-left: 80px;
 }
 
 .full-screen{
@@ -260,4 +261,79 @@ footer a:hover {
 
 .thumbnail {
   height: 100%;
+}
+
+.favorite_form {
+  margin-left: 40px;
+}
+
+.add-to-cart {
+  margin-left: 130px;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+}
+
+.favorite {
+  list-style: none;
+  padding: 0;
+  li {
+    border-top: 1px solid $color_eastern_blue_approx;
+    padding: 10px 0;
+    height: 150px;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    color: $black;
+    display: block;
+    margin-left: 60px;
+  }
+  .timestamp {
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin: 5px 10px 0 0;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.read {
+  margin-top: 20px;
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: $color_eastern_blue_approx;
+    margin-left: -25px;
+    padding-left: 20px;
+    color: $black;
+    border-radius: 10px;
+  }
+  .avatar_read {
+    width: 180px;
+    height: 150px;
+    text-align: center;
+  }
+}
+
+.title-favorite {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: $color_eastern_blue_approx;
+  padding-left: 20px;
+  color: $black;
+  border-radius: 10px;
+}
+
+.image_cm {
+  width: 60px;
+  height: 50px;
+  padding-right: 10px;
 }
