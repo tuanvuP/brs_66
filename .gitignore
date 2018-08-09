@@ -65,3 +65,6 @@ config/environments/*.local.yml
 # Ignore config files
 config/database.yml
 config/credentials.yml.enc
+
+# Ignore image
+public/uploads/*

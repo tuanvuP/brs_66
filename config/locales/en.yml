@@ -199,6 +199,26 @@ en:
     verify_admin:
       danger: "You are not admin, Please signin again"
 
+    books:
+      index:
+        books: "List books"
+        stt: "STT"
+        name: "Name"
+        description: "Description"
+        image: "Image"
+        publish_date: "Publish date"
+        price: "Price"
+        category_id: "Category"
+        create: "Add new book"
+        search: "Search"
+      new:
+        title: "Create book"
+        button: "Create"
+      form:
+        description: "Description"
+      create:
+        success: "Create book success!"
+        danger: "Create book not success."
   carts:
     load_book_in_cart:
       danger: "No book in cart"
@@ -230,4 +250,3 @@ en:
       total: "Total"
       total_money: "Total order money:"
       p: "You dont have any order"
-
