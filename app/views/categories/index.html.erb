@@ -1,7 +1,19 @@
 <% provide :title, t(".categories") %>
 <h1><%= t ".categories" %></h1>
-<div class="form-group">
-  <%= link_to t(".create"), new_category_path, class: "btn btn-info" %>
+<div class="form-group col-md-12">
+  <div class="col-md-3">
+    <%= link_to t(".create"), new_category_path, class: "btn btn-info" %>
+  </div>
+  <div class="col-md-9 right">
+    <%= form_tag categories_path, method: "get", enforce_utf8: false do %>
+      <div class="col-md-10">
+        <%= text_field_tag :search, params[:search], class: "form-control" %>
+      </div>
+      <div class="col-md-2">
+        <%= submit_tag t(".search"), name: nil, class: "btn btn-info" %>
+      </div>
+    <% end %>
+  </div>
 </div>
 <%= paginate @categories, theme: "twitter-bootstrap-3"%>
 <table class="table table-bordered">

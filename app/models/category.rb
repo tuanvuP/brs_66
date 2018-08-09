@@ -7,4 +7,10 @@ class Category < ApplicationRecord
   validates :title, presence: true,
     length: {maximum: Settings.category.title.length}
   validates :description, presence: true
+
+  class << self
+    def search key
+      where("title LIKE ? OR description LIKE ?", "%#{key}%", "%#{key}%")
+    end
+  end
 end

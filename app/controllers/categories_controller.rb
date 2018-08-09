@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :load_category, except: %i(index new create)
 
   def index
-    @categories = Category.list_category
+    @categories = Category.search(params[:search])
                           .page(params[:page])
                           .per Settings.per_page
   end

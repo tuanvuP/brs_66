@@ -3,7 +3,6 @@ class FavoritesController < ApplicationController
   before_action :load_book, only: :create
 
   def create
-    @book = Book.find_by id: params[:book_id]
     if current_user.favorite @book
       respond_to do |format|
         format.html {redirect_to @book}
