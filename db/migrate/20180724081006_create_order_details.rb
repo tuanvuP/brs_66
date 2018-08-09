@@ -3,8 +3,8 @@ class CreateOrderDetails < ActiveRecord::Migration[5.2]
     create_table :order_details do |t|
       t.references :order, foreign_key: true
       t.references :book, foreign_key: true
-      t.string :quantity
-      t.string :current_price
+      t.integer :quantity
+      t.float :current_price
 
       t.timestamps
     end

@@ -1,0 +1,37 @@
+<table class="table">
+  <tr>
+    <th><%= t ".name" %></th>
+    <th><%= t ".price" %></th>
+    <th><%= t ".quantity" %></th>
+    <th><%= t ".subtotal" %></th>
+    <th><%= t ".action" %></th>
+  </tr>
+  <% @book_in_cart.each do |book| %>
+    <tr>
+      <td><%= book.name %></td>
+      <td><%= book.price %></td>
+      <td>
+        <div class="cart-quantity">
+          <%= form_tag update_quantity_carts_path,method: :post, remote: true, id: "update_item"+book.id.to_s  do |f| %>
+            <input type="text" name="key" hidden value="<%= book.id %>">
+            <div class="form-group">
+            <%= number_field_tag :quantity, quantity(book), class: "form-control",
+              id: "a#{book.id.to_s}", onchange: "changeQuantity(#{book.id.to_s})",
+                within: 1...10 %>
+            </div>
+          <% end %>
+        </div>
+      </td>
+      <td><%= sub_total(book) %></td>
+      <td>
+        <div class="btn btn-default">
+          <%= button_to remove_book_path(book), remote: true, method: :delete,  data: 
+          {confirm: t(".confirm_del")}, class: "delete" do  %>
+            <%= t ".remove" %>
+            <input type="text" name="key" hidden value="<%= book.id %>">
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>

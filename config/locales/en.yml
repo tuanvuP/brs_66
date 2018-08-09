@@ -52,6 +52,10 @@ en:
       not_login: "Please log in."
     verify_admin:
       should_login: "You should login"
+    load_cart:
+      cart_not_found: "Cart not found"
+    load_book:
+      not_found_book: "Can not found this book"
 
   static_pages:
     home:
@@ -116,6 +120,7 @@ en:
       comment: "Comment"
       level: "Rate this book"
       mark: "Mark this book"
+      add_cart: "Add to cart"
     like:
       like: "Like"
       and: "You and "
@@ -193,3 +198,36 @@ en:
         error: "Update fail"
     verify_admin:
       danger: "You are not admin, Please signin again"
+
+  carts:
+    load_book_in_cart:
+      danger: "No book in cart"
+    index:
+      title: "Cart"
+      create_order: "Create order"
+      total_money: "Total money: %{total_m}"
+    table:
+      confirm_del: "Are you sure"
+      name: "Name"
+      price: "Price"
+      quantity: "Quantity"
+      subtotal: "Subtotal"
+      action: "Action"
+      remove: "Remove"
+
+  orders:
+    new:
+      title: "Create Order"
+      empty: "Ban chua chon hang"
+      full: "Full name"
+      phone: "Phone"
+      address: "Address"
+    create:
+      create_order_success: "Create order success"
+    index:
+      title: "Order"
+      your_order: "Your order"
+      total: "Total"
+      total_money: "Total order money:"
+      p: "You dont have any order"
+

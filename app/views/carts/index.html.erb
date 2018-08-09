@@ -1,0 +1,11 @@
+<% provide :title, t(".title") %>
+<h3>Cart</h3>
+<div class="full-screen">
+  <div class="row">
+    <div class="col-md-12 show_table">
+     <%= render "table" %>
+    </div>
+  </div>
+</div>
+<p><%= t ".total_money", total_m: total_money %></p>
+<%= link_to t(".create_order"), new_order_path, class: "btn btn-primary" %>
