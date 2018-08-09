@@ -22,6 +22,9 @@ en:
     error_messages:
       error: "The form contains"
       pluralize: "error"
+    stats:
+      following: "Following"
+      follower: "Follower"
 
   sessions:
     new:
@@ -69,6 +72,14 @@ en:
       comment: "Comment"
       read: "Reading this book"
       ago: "ago."
+    follow:
+      submit: "Follow"
+    unfollow:
+      submit: "Unfollow"
+    following:
+      title: "Following"
+    followers:
+      title: "Followers"
 
   application:
     load_user:

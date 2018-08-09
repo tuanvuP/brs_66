@@ -48,6 +48,18 @@ class UsersController < ApplicationController
     @books = current_user.favorited
   end
 
+  def following
+    @title = t ".title"
+    @users = @user.following.page(params[:page]).per Settings.user.per_page
+    render :show_follow
+  end
+
+  def followers
+    @title = t ".title"
+    @users = @user.followers.page(params[:page]).per Settings.user.per_page
+    render :show_follow
+  end
+
   private
 
   def user_params
