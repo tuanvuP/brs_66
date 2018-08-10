@@ -24,7 +24,9 @@
       <th><%= t ".name" %></th>
       <th><%= t ".avatar" %></th>
       <th><%= t ".email" %></th>
-      <th class="table-th" colspan="2" ><%= t ".active" %></th>
+      <% if current_user.admin? %>
+        <th class="table-th" colspan="2" ><%= t ".active" %></th>
+      <% end %>
     </tr>
   </thead>
   <tbody>

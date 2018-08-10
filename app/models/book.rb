@@ -27,6 +27,13 @@ class Book < ApplicationRecord
   scope :favored_by, ->user{joins(:favorites).where("favorites.user_id = ?",
     user.id).order created_at: :desc}
 
+  scope :read_by, ->user{joins(:mark_books).where("mark_books.user_id = ? AND
+    mark_books.status = ?", user.id,
+    MarkBook.statuses[:reading]).order created_at: :desc}
+
+  scope :favored_by, ->user{joins(:favorites).where("favorites.user_id = ?",
+    user.id).order created_at: :desc}
+
   validates :name, presence: true
   validates :description, presence: true
   validates :image, presence: true

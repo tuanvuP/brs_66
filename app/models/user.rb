@@ -6,9 +6,16 @@ class User < ApplicationRecord
   has_many :mark_books
   has_many :favorites
   has_many :orders
-  has_many :follows
   has_many :liked, through: :likes, source: :book
   has_many :favorited, through: :favorites, source: :book
+
+  has_many :active_follows, class_name: Follow.name, foreign_key: :user_id,
+    dependent: :destroy
+  has_many :passive_follows, class_name: Follow.name, foreign_key: :follower_id,
+    dependent: :destroy
+  has_many :followers, through: :passive_follows, source: :user
+  has_many :following, through: :active_follows,  source: :follower
+
 
   validates :username, presence: true,
    length: {maximum: Settings.user.name.length}
@@ -90,5 +97,17 @@ class User < ApplicationRecord
 
   def current_favorite book
     favorites.find_by book_id: book.id
+  end
+
+  def follow other_user
+    following << other_user
+  end
+
+  def unfollow other_user
+    following.delete other_user
+  end
+
+  def following? other_user
+    following.include? other_user
   end
 end
