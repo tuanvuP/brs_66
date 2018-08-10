@@ -1,0 +1,13 @@
+<ol class="favorite">
+  <% @list_favorites.each do |favorite| %>
+    <li>
+      <%= image_tag favorite.image_url.to_s, class: "gravatar" %>
+      <span class="user"><%= link_to favorite.name, favorite %></span>
+      <span class="content"><%= favorite.description %></span>
+      <span class="timestamp">
+        <%= t ".favorite" %> <%= time_ago_in_words(favorite.created_at) %>
+        <%= t ".ago" %>
+      </span>
+    </li>
+  <% end %>
+</ol>

@@ -44,7 +44,13 @@
         </td>
         <td><%= book.publish_date %></td>
         <td><%= book.price %></td>
-        <td></td>
+        <% if current_user.admin? %>
+          <td>
+            <%= link_to t(".edit"), edit_admin_book_path(book), class: "btn btn-success" %>
+            <%= link_to t(".delete"), admin_book_path(book), method: :delete,
+              data: {confirm: t(".confirm")}, class: "btn btn-danger"%>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

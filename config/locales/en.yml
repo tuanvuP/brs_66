@@ -11,6 +11,10 @@ en:
       settings: "Settings"
       logout: "Logout"
       help: "Help"
+      book: "Books"
+      Cart: "Cart"
+      order: "Order"
+      users: "Users"
     footer:
       copyright: "@Coyright M,H , Book Review"
 
@@ -27,6 +31,7 @@ en:
       signup: "Signup now!"
     create:
       danger: "Invalid email/password combination"
+
   users:
     new:
       title: "Register"
@@ -45,6 +50,26 @@ en:
       creates: "Create"
     index:
       index_admin: "You are in index for admin"
+      users: "All users"
+      stt: "STT"
+      name: "User name"
+      avatar: "Avatar"
+      email: "Email"
+      action: "Action"
+      edit: "Edit"
+      search: "Search"
+    show:
+      favorite: "Favorite book"
+      reading: "Reading book"
+    list_favorites:
+      favorite: "Favorite this book"
+      ago: "ago."
+    list_read:
+      like: "Like"
+      comment: "Comment"
+      read: "Reading this book"
+      ago: "ago."
+
   application:
     load_user:
       not_exist: "This user not not exist"
@@ -215,6 +240,9 @@ en:
         category_id: "Category"
         create: "Add new book"
         search: "Search"
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "You sure delete?"
       new:
         title: "Create book"
         button: "Create"
@@ -223,6 +251,15 @@ en:
       create:
         success: "Create book success!"
         danger: "Create book not success."
+      edit:
+        title: "Edit book"
+        button: "Save"
+      update:
+        success: "Update book success."
+        danger: "Update book not success."
+      destroy:
+        success: "Delete book success."
+        danger: "Delete book not success."
   carts:
     load_book_in_cart:
       danger: "No book in cart"

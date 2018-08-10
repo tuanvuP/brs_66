@@ -1,0 +1,20 @@
+<div class="row">
+  <% @list_read.each do |read| %>
+    <div class="col-md-3">
+      <div class="index-book">
+        <%= image_tag read.image_url, class: "avatar_read" %>
+        <div class="content-book">
+          <%= link_to read.name, read %>
+        </div>
+        <span class="glyphicon glyphicon-thumbs-up"></span>
+        <%= read.likes.count %> <%= t ".like" %>&nbsp;
+        <span class="glyphicon glyphicon-comment"></span>
+        <%= read.comments.count %> <%= t ".comment" %></br>
+        <span>
+          <%= t ".read" %> <%= time_ago_in_words(read.created_at) %>
+          <%= t ".ago" %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+</div>

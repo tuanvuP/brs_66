@@ -15,6 +15,7 @@
           <li class="nav-item"><%= link_to t(".books"), admin_books_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to t(".categories"), categories_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to t(".author"), admin_authors_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to t(".users"), users_path, class: "nav-link" %></li>
         <% end %>
         <li class="nav-item"><%= link_to t(".Cart"), carts_path, class: "nav-link" %></li>
         <li class="nav-item dropdown">
@@ -22,8 +23,8 @@
             "id": "navbarDropdown", "role": "button", "data-toggle": "dropdown",
             "aria-haspopup": "true", "aria-expanded": "false" %>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to t(".profile"), "#", class: "dropdown-item" %>
-            <%= link_to t(".settings"), "#", class: "dropdown-item" %>
+            <%= link_to t(".profile"), current_user, class: "dropdown-item" %>
+            <%= link_to t(".settings"), edit_user_path(current_user), class: "dropdown-item" %>
             <%= link_to t(".help"), help_path, class: "dropdown-item" %>
             <%= link_to t(".order"), orders_path, class: "dropdown-item" %>
             <div class="dropdown-divider"></div>

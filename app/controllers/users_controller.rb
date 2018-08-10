@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
   before_action :load_user, except: %i(index new create)
-  before_action :correct_user, :logged_in_user, only: %i(edit update)
+  before_action :logged_in_user, only: %i(edit update)
 
   def index
+    @users = User.search(params[:search])
+                 .page(params[:page])
+                 .per Settings.per_page
   end
 
   def new
@@ -21,10 +24,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @list_favorites = Book.favored_by @user
+    @list_read = Book.read_by @user
+  end
+
   def edit; end
 
   def update
-    if @user&.update_attributes user_params
+    if @user.update_attributes user_params
       flash[:success] = t ".update_success"
       redirect_to @user
     else
@@ -44,6 +52,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit :username, :email, :password,
-      :password_confirmation
+      :password_confirmation, :avatar
   end
 end

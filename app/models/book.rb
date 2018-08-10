@@ -17,11 +17,15 @@ class Book < ApplicationRecord
   scope :list_book, ->{select :id, :name, :image, :price,
                         :category_id, :created_at}
   scope :by_book_ids, -> book_ids{where id: book_ids}
-  scope :by_id, -> book_id {where id: book_id}
-
-  scope :search_name, -> s_name {where "name LIKE ?", "%#{s_name}%"}
-  scope :category_id, -> c_id {where category_id: c_id}
+  scope :by_id, -> book_id{where id: book_id}
+  scope :search_name, -> search_name {where "name LIKE ?", "%#{search_name}%"}
+  scope :category_id, -> category_id {where category_id: category_id}
   scope :order_by, ->{order created_at: :desc}
+  scope :read_by, ->user{joins(:mark_books).where("mark_books.user_id = ? AND
+    mark_books.status = ?", user.id,
+    MarkBook.statuses[:reading]).order created_at: :desc}
+  scope :favored_by, ->user{joins(:favorites).where("favorites.user_id = ?",
+    user.id).order created_at: :desc}
 
   validates :name, presence: true
   validates :description, presence: true
@@ -38,7 +42,7 @@ class Book < ApplicationRecord
     joins(:mark_books).select(:id, :image, :name, :price, "count(books.id) as reading")
       .where("mark_books.status": status).group(:book_id).order("count(books.id) desc").limit(4)
   end)
-  
+
   ratyrate_rateable "rating"
   mount_uploader :image, ImageUploader
 
