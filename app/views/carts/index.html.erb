@@ -1,11 +1,17 @@
 <% provide :title, t(".title") %>
 <h3>Cart</h3>
-<div class="full-screen">
-  <div class="row">
-    <div class="col-md-12 show_table">
-     <%= render "table" %>
-    </div>
-  </div>
-</div>
+  <% if !session[:cart].blank? %>
+	<div class="full-screen cart-container">
+	  <div class="row">
+	    <div class="col-md-12 show_table">
+	     <%= render "table" %>
+	    </div>
+	  </div>
+	</div>
+  <% else %>
+  <p class="text-center">
+    <% t ".p1" %><%= link_to "go back", root_path %><% t ".p2" %>
+  </p>
+  <% end %>
 <p><%= t ".total_money", total_m: total_money %></p>
 <%= link_to t(".create_order"), new_order_path, class: "btn btn-primary" %>

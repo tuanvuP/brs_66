@@ -9,4 +9,8 @@ module OrdersHelper
       redirect_to root_path
     end
   end
+
+  def load_item id
+	  Book.find_by id: id
+  end
 end

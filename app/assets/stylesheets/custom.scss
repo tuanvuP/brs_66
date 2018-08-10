@@ -56,7 +56,8 @@ header {
   width: 100%;
 }
 
-.container {
+body .container {
+  margin-top: 0;
   padding: 80px 120px;
 }
 
@@ -255,4 +256,8 @@ footer a:hover {
 .image {
   width: 150px;
   height: 200px;
+}
+
+.thumbnail {
+  height: 100%;
 }

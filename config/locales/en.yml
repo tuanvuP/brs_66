@@ -112,6 +112,9 @@ en:
       $: "$"
       like: "Like"
       comment: "Comment"
+      like_max: "Like Max"
+      read_max: "Reading Max"
+      all: "All book"
     load_book:
       danger: "Not find book!"
     comment_form:
@@ -134,6 +137,8 @@ en:
       favorites: "Mark as Favorite"
     search:
       search: "Search"
+    book:
+      .add_cart: "add to cart"
 
   mark_books:
     mark_book:
@@ -198,7 +203,6 @@ en:
         error: "Update fail"
     verify_admin:
       danger: "You are not admin, Please signin again"
-
     books:
       index:
         books: "List books"
@@ -226,6 +230,9 @@ en:
       title: "Cart"
       create_order: "Create order"
       total_money: "Total money: %{total_m}"
+      danger: "You don't have any book in cart"
+      p1: "There are no items in your shopping cart.  Please "
+      p2: " and add some items to your cart."
     table:
       confirm_del: "Are you sure"
       name: "Name"
@@ -250,3 +257,5 @@ en:
       total: "Total"
       total_money: "Total order money:"
       p: "You dont have any order"
+      cancel: "Cancel this order"
+      canceled: "Canceled"

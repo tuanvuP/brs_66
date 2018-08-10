@@ -7,7 +7,7 @@ class Author < ApplicationRecord
   validates :phone, presence: true
   validates :address, presence: true
 
-  scope :list_author, ->{select("id, name, phone, address, brith_year").
+  scope :list_author, ->{select("id, brith_year, name, phone, address").
     order name: :asc}
 
   class << self

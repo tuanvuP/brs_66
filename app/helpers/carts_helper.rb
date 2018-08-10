@@ -13,15 +13,10 @@ module CartsHelper
   end
 
   def quantity book
-    session["cart"][book.id.to_s]
+    session[:cart][book.id.to_s]
   end
 
   def load_book_in_cart
-  	if session["cart"].blank?
-  	  flash[:danger] = t ".danger"
-        redirect_to books_path
-  	else
-  	  @book_in_cart = Book.by_book_ids session["cart"].keys
-  	end
+  	@book_in_cart = Book.by_book_ids session[:cart].keys
   end
 end
