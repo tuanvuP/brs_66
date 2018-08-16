@@ -1,4 +1,6 @@
-<%= form_for(followers_user_path, remote: true) do |f| %>
-  <div><%= hidden_field_tag :follower_id, @user.id %></div>
-  <%= f.submit t(".submit"), class: "btn btn-primary" %>
+<%= form_for @follow, remote: true do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id if current_user != nil %>
+  <%= f.hidden_field :type_follow, value: "user" %>
+  <%= f.hidden_field :follower_id, value: @user.id %>
+  <%= f.submit t(".submit"), id: "follow", class: "btn btn-primary" %>
 <% end %>

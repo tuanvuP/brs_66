@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :liked, through: :likes, source: :book
   has_many :favorited, through: :favorites, source: :book
+  has_many :follows
 
   has_many :active_follows, class_name: Follow.name, foreign_key: :user_id,
     dependent: :destroy
@@ -32,6 +33,8 @@ class User < ApplicationRecord
   ratyrate_rater
 
   mount_uploader :avatar, ImageUploader
+
+  scope :following_by, ->following_by{where("follows.type_follow = ?", Follow.type_follows[:user]).order created_at: :desc}
 
   class << self
     def digest string

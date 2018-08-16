@@ -1,4 +1,6 @@
-<%= form_for(unfollow(@follower), html: { method: :delete },
-  remote: true) do |f| %>
-  <%= f.submit t(".submit"), class: "btn btn-default" %>
+<%= form_for unfollow_user, html: { method: :delete }, remote: true do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id if current_user != nil %>
+  <%= f.hidden_field :type_follow, value: "user" %>
+  <%= f.hidden_field :follower_id, value: @user.id %>
+  <%= f.submit t(".submit"), id: "unfollow", class: "btn btn-default" %>
 <% end %>

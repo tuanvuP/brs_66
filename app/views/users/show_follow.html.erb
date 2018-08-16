@@ -12,18 +12,11 @@
     <section class="stats">
       <%= render "shared/stats" %>
     </section>
-    <% if @users.any? %>
-        <div class="user_avatars">
-          <% @users.each do |user| %>
-            <%= image_tag user.avatar_url.to_s, class: "image_cm" %>
-          <% end %>
-        </div>
-      <% end %>
   </div>
   <div class="col-md-8">
     <p class="title-favorite"><%= @title %></p>
     <% if @users.any? %>
-      <ul class="users follow">
+      <ul class="users-follow">
         <%= render @users %>
       </ul>
       <%= paginate @users, theme: "twitter-bootstrap-3" %>
