@@ -3,8 +3,8 @@ class CreateAuthors < ActiveRecord::Migration[5.2]
     create_table :authors do |t|
       t.string :name
       t.date :brith_year
-      t.string :phone
-      t.string :address
+      t.string :country
+      t.text :biography
 
       t.timestamps
     end

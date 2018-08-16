@@ -46,32 +46,41 @@ Category.create!([{
 }])
 
 Author.create!([{
-  name: "Author 1",
+  name: "Michael Hartl",
   brith_year: "1978-06-08",
-  phone: "0981123123",
-  address: "Auhtor address"
+  country: "American",
+  biography: "Michael Hartl is founder of the educational website
+    LearnEnough.com and author of the Ruby on Rails Tutorial,
+    the leading introduction to web development with Rails. "
 },
 {
-  name: "Author 2",
+  name: "Robin Nixon",
   brith_year: "1978-06-08",
-  phone: "0981123123",
-  address: "Auhtor address"
+  country: "New Romney, United Kingdom",
+  biography: "Robin Nixon has worked with and written about computers
+    since the early 1980s. During this time he has written in excess of
+    500 articles for many of the UK's top computer magazines."
 },
 {
-  name: "Author 3",
+  name: "David Heinemeier Hansson",
   brith_year: "1978-06-08",
-  phone: "0981123123",
-  address: "Auhtor address"
+  country: "Chicago",
+  biography: "David Heinemeier Hansson is a partner at 37signals,
+    a privately-held Chicago-based company committed to building the best
+    web-based tools possible with the least number of features necessary."
 },
 {
-  name: "Author 4",
-  brith_year: "1978-06-08",
-  phone: "0981123123",
-  address: "Auhtor address"
+  name: "Dave Thomas",
+  brith_year: "1932-07-02",
+  country: "American",
+  biography: "He's a programmer, and now He's an accidental publisher.
+    I wrote The Pragmatic Programmer with Andy Hunt at the end of the '90s,
+    and that experience opened a new world for us."
 },
 {
-  name: "Author 5",
+  name: "Daniel Kehoe",
   brith_year: "1978-06-08",
-  phone: "0981123123",
-  address: "Auhtor address"
+  country: "San Francisco, California",
+  biography: "He's a Senior Ruby on Rails Developer,
+    currently available for remote work."
 }])

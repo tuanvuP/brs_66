@@ -5,11 +5,11 @@
   <%= f.label :birth %>
   <%= f.date_field :brith_year, class: "form-control" %>
 
-  <%= f.label :phone %>
-  <%= f.telephone_field :phone, class: "form-control" %>
+  <%= f.label :country %>
+  <%= f.text_field :country, class: "form-control" %>
 
-  <%= f.label :address %>
-  <%= f.text_field :address, class: "form-control" %>
+  <%= f.label :biography %>
+  <%= f.text_area :biography, class: "form-control", rows: 3 %>
   <br>
   <%= f.submit t(".creates"), class: "btn btn-primary" %>
 <% end %>

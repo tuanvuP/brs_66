@@ -4,10 +4,10 @@
       <%= create_index params[:page], index,
         Settings.user.per_page %>
     </td>
-    <td><%= link_to author.name, admin_author_path(author) %></td>
+    <td><%= link_to author.name, author %></td>
     <td><%= author.brith_year %></td>
-    <td><%= author.phone %></td>
-    <td><%= author.address %></td>
+    <td><%= author.country %></td>
+    <td><%= author.biography %></td>
     <td>
       <%= link_to t(".edit"), edit_admin_author_path(author), class: "btn btn-success" %>
     </td>

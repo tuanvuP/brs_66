@@ -1,0 +1,32 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+<div class="row col-md-12">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <%= form_tag authors_path, method: "get", enforce_utf8: false do %>
+      <div class="row">
+        <div class="col-md-10">
+          <%= text_field_tag :search, params[:search], class: "form-control" %>
+        </div>
+        <div class="col-md-2">
+          <%= submit_tag t(".search"), name: nil, class: "btn btn-info" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <ul class="authors">
+    <% @authors.each do |author| %>
+      <li>
+        <span class="user">
+          <%= link_to author.name, author %> -
+          <%= l(author.brith_year, format: :year) %>
+          <%= link_to t(".detail"), author %>
+        </span>
+        <p class="biography"><%= author.biography %></p>
+      </li>
+    <% end %>
+  </ul>
+<%= paginate @authors, theme: "twitter-bootstrap-3" %>
+</div>

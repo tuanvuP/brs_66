@@ -377,3 +377,24 @@ footer a:hover {
     margin-bottom:5px;
   }
 }
+
+.biography {
+  text-align: justify;
+  color: $black;
+  text-indent: 30px;
+}
+
+.authors {
+  margin-top: 20px;
+  li {
+    text-decoration: none;
+    list-style: none;
+    border-bottom: 1px solid $color_eastern_blue_approx;
+  }
+}
+
+.name-author {
+  font-size: 20px;
+  color: $red;
+  font-weight: bold;
+}

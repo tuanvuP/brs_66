@@ -15,6 +15,7 @@ en:
       Cart: "Cart"
       order: "Order"
       users: "Users"
+      authors: "Authors"
     footer:
       copyright: "@Coyright M,H , Book Review"
 
@@ -165,7 +166,7 @@ en:
       and: "You and "
       other: "other user liked."
     unlike:
-      like: "Dislike"
+      like: "Like"
       other: "other user liked."
     favorite:
       favorites: "Favorite"
@@ -237,8 +238,10 @@ en:
       update:
         update_success: "Update success"
         error: "Update fail"
+
     verify_admin:
       danger: "You are not admin, Please signin again"
+
     books:
       index:
         books: "List books"
@@ -307,3 +310,19 @@ en:
       p: "You dont have any order"
       cancel: "Cancel this order"
       canceled: "Canceled"
+
+  authors:
+    index:
+      title: "List authors"
+      search: "Search"
+      detail: "<- Detail ->"
+    show:
+      country: "Country:"
+      book: "Books By"
+      danger: "Not find author."
+      publish: "Publish:"
+
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      year: "%Y"

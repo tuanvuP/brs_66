@@ -2,7 +2,8 @@ class Admin::AuthorsController < Admin::AdminController
   before_action :load_author, except: %i(index new create)
 
   def index
-    @authors = Author.search(params[:search])
+    @authors = Author.list_author
+                     .search(params[:search])
                      .page(params[:page])
                      .per Settings.per_page
   end
@@ -46,7 +47,7 @@ class Admin::AuthorsController < Admin::AdminController
   end
 
   def author_params
-    params.require(:author).permit :name, :brith_year, :phone,
-      :address
+    params.require(:author).permit :name, :brith_year, :country,
+      :biography
   end
 end

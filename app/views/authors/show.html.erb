@@ -1,0 +1,29 @@
+<% provide :title, @author.name %>
+<div class="row col-md-12">
+  <div class="col-md-4">
+    <span class="name-author"><%= @author.name %></span><br>
+    <i>
+      (<%= l(@author.brith_year, format: :default) %>) <br>
+      <%= t ".country" %> <%= @author.country %>
+    </i>
+    <hr>
+    <p class="biography"><%= @author.biography %></p>
+  </div>
+  <div class="col-md-8">
+    <p class="title-favorite"><%= t ".book" %> <%= link_to @author.name %></p>
+    <ol class="favorite">
+      <% @list_books.each do |list_book| %>
+        <li>
+          <%= image_tag list_book.image_url.to_s, class: "gravatar" %>
+          <span class="user"><%= link_to list_book.name, list_book %></span>
+          <i class="timestamp">
+            <%= t ".publish" %>
+            <%= l(list_book.publish_date, format: :default) %>
+          </i>
+          <span class="content"><%= list_book.description %></span>
+        </li>
+      <% end %>
+    </ol>
+    <%= paginate @list_books, theme: "twitter-bootstrap-3" %>
+  </div>
+</div>
