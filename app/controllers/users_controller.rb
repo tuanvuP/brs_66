@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @follow = current_user.active_follows.build
     @list_favorites = Book.favored_by @user
     @list_read = Book.read_by @user
   end
@@ -50,13 +51,15 @@ class UsersController < ApplicationController
 
   def following
     @title = t ".title"
-    @users = @user.following.page(params[:page]).per Settings.user.per_page
+    @users = @user.following.following_by(@following_by)
+                  .page(params[:page]).per Settings.user.per_page
     render :show_follow
   end
 
   def followers
     @title = t ".title"
-    @users = @user.followers.page(params[:page]).per Settings.user.per_page
+    @users = @user.followers.following_by(@following_by)
+                  .page(params[:page]).per Settings.user.per_page
     render :show_follow
   end
 

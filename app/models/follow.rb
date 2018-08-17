@@ -3,8 +3,8 @@ class Follow < ApplicationRecord
   belongs_to :follower, class_name: User.name
 
   validates :user, presence: true
-  validates :type, presence: true
+  validates :type_follow, presence: true
   validates :follower_id, presence: true
 
-  enum type: [:user, :book, :author]
+  enum type_follow: [:user, :book, :author]
 end

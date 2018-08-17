@@ -365,3 +365,15 @@ footer a:hover {
   padding-left: 15px;
   font-size: 20px;
 }
+
+.users-follow {
+  li {
+    text-decoration: none;
+    list-style: none;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $gray-lighter;
+  }
+  .image_cm {
+    margin-bottom:5px;
+  }
+}

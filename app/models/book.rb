@@ -12,8 +12,6 @@ class Book < ApplicationRecord
 
   accepts_nested_attributes_for :author_books
 
-  ratyrate_rateable "rating"
-
   scope :list_book, ->{select :id, :name, :image, :price,
                         :category_id, :created_at}
   scope :by_book_ids, -> book_ids{where id: book_ids}
@@ -24,13 +22,6 @@ class Book < ApplicationRecord
   scope :read_by, ->user{joins(:mark_books).where("mark_books.user_id = ? AND
     mark_books.status = ?", user.id,
     MarkBook.statuses[:reading]).order created_at: :desc}
-  scope :favored_by, ->user{joins(:favorites).where("favorites.user_id = ?",
-    user.id).order created_at: :desc}
-
-  scope :read_by, ->user{joins(:mark_books).where("mark_books.user_id = ? AND
-    mark_books.status = ?", user.id,
-    MarkBook.statuses[:reading]).order created_at: :desc}
-
   scope :favored_by, ->user{joins(:favorites).where("favorites.user_id = ?",
     user.id).order created_at: :desc}
 
@@ -58,6 +49,5 @@ class Book < ApplicationRecord
       where("name LIKE ? OR description LIKE ?", "%#{key}%", "%#{key}%")
     end
   end
-
 end
 
