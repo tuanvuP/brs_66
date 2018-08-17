@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'follow/create'
   root "books#index"
   get "/help", to: "static_pages#help"
   get "/login", to: "sessions#new"
@@ -43,4 +42,5 @@ Rails.application.routes.draw do
   end
 
   resources :follows
+  resources :authors, only: %i(index show)
 end

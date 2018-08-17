@@ -4,15 +4,15 @@ class Author < ApplicationRecord
 
   validates :name, presence: true
   validates :brith_year, presence: true
-  validates :phone, presence: true
-  validates :address, presence: true
+  validates :country, presence: true
+  validates :biography, presence: true
 
-  scope :list_author, ->{select("id, brith_year, name, phone, address").
-    order name: :asc}
+  scope :list_author, ->{select("id, brith_year, name, country, biography").
+    order created_at: :desc}
 
   class << self
     def search key
-      where("name LIKE ? OR address LIKE ? OR phone LIKE ?", "%#{key}%", "%#{key}%", "#{key}")
+      where("name LIKE ?", "%#{key}%")
     end
   end
 end

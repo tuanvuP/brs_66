@@ -1,21 +1,21 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <%= link_to t(".app_name"), root_path, class: "navbar-brand" %>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <%= link_to t(".app_name"), root_path, class: "navbar-brand" %>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
     </ul>
-    <ul class="nav justify-content-end"></ul>
+    <ul class="nav justify-content-end">
       <% if logged_in? %>
         <% if current_user.admin? %>
           <li class="nav-item"><%= link_to t(".books"), admin_books_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to t(".categories"), categories_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to t(".author"), admin_authors_path, class: "nav-link" %></li>
         <% end %>
+        <li class="nav-item"><%= link_to t(".authors"), authors_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to t(".users"), users_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to t(".Cart"), carts_path, class: "nav-link" %></li>
         <li class="nav-item dropdown">

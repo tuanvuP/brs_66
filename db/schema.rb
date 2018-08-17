@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2018_08_08_231118) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.date "brith_year"
-    t.string "phone"
-    t.string "address"
+    t.string "country"
+    t.text "biography"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
