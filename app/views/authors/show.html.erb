@@ -8,6 +8,13 @@
     </i>
     <hr>
     <p class="biography"><%= @author.biography %></p>
+    <a href="<%= follower_authors_author_path(@author) %>">
+      <strong id="followers_author" class="stat">
+        <%= @user.follower_authors.follower_author(@follower_author).count %>
+      </strong>
+      <%= t ".followers" %>
+    </a>
+    <%= render "follow_form" if user_signed_in? %>
   </div>
   <div class="col-md-8">
     <p class="title-favorite"><%= t ".book" %> <%= link_to @author.name %></p>

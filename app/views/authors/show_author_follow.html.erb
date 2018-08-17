@@ -1,0 +1,25 @@
+<% provide :title, @title %>
+<div class="row col-md-12">
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-10">
+        <span>
+          <%= image_tag @user.avatar_url.to_s, class: "avatar" %>
+        </span>
+        <span class="name-user"><%= @user.username %></span>
+      </div>
+    </div>
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
+  </div>
+  <div class="col-md-8">
+    <p class="title-favorite"><%= @title %></p>
+    <% if @authors.any? %>
+      <ul class="users-follow">
+        <%= render @authors %>
+      </ul>
+      <%= paginate @authors, theme: "twitter-bootstrap-3" %>
+    <% end %>
+  </div>
+</div>

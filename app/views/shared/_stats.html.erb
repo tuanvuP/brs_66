@@ -12,4 +12,11 @@
     </strong>
     <%= t ".followers" %>
   </a>
+  <br>
+  <a href="<%= following_author_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @user.following.follower_author(@follower_author).count %>
+    </strong>
+    <%= t ".following_author" %>
+  </a>
 </div>

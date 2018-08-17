@@ -1,0 +1,6 @@
+<%= form_for(@follow, as: :create_author, url: create_author_path, remote: true) do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :type_follow, value: "author" %>
+  <%= f.hidden_field :follower_id, value: @author.id %>
+  <%= f.submit t(".submit"), id: "follow", class: "btn btn-primary" %>
+<% end %>
