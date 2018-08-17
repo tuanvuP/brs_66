@@ -1,4 +1,44 @@
 en:
+  devise:
+    password:
+      edit:
+        title: "Change your password"
+        new_pass: "New password" 
+        submit: "Change my password"
+        char: "characters minimum"
+      new:
+        title: "Forgot your password?"
+        submit: "Send me reset password instructions"
+    registration:
+      new:
+        title: "Sign up"
+        submit: "Sign up"
+        char: " characters minimum"
+      edit:
+        title: "Edit"
+        current: "Currently waiting confirmation for:"
+        current_pass: "(we need your current password to confirm your changes)"
+        submit: "Update"
+        h: "Cancel my account"
+        unhappy: "Unhappy?"
+        button: "Cancel my account"
+        confirm: "Are you sure?"
+        back: "Back"
+        changes: "(leave blank if you don't want to change it)"
+        char: " characters minimum"
+    sessions:
+      new:
+        title: "log in"
+        submit: "Login"
+    shared:
+      links:
+        login: "Log in"
+        signup: "Sign up"
+        pass: "Forgot your password?"
+        receive: "Didn't receive confirmation instructions?"
+        lock: "Didn't receive unlock instructions?"
+        sign: "Sign in with"
+        
   layouts:
     header:
       author: "Author"

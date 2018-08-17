@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "books#index"
   get "/help", to: "static_pages#help"
   get "/login", to: "sessions#new"
@@ -17,15 +18,12 @@ Rails.application.routes.draw do
     end
   end
   resources :books, only: %i(index show)
-  resources :carts, only: :index
-  resources :carts do
+  resources :carts, only: [:index] do
     collection do
       post :update_quantity
     end
   end
-  resources :orders
-  resources :categories
-  resources :comments
+  resources :orders, :categories
   resources :comments do
     member do
       get :new_reply

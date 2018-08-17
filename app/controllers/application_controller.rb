@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :load_user, only: :correct_user
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  include SessionsHelper
   include CartsHelper
   include OrdersHelper
 
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in_user
-    return if logged_in?
+    return if user_signed_in?
     flash[:danger] = t ".not_login"
     redirect_to login_url
   end
@@ -33,5 +33,11 @@ class ApplicationController < ActionController::Base
 
    def current_cart
     @cart = session[:cart] ||= {}
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit :sign_up, keys: [:username, :avatar]
   end
 end
