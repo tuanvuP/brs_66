@@ -398,3 +398,24 @@ footer a:hover {
   color: $red;
   font-weight: bold;
 }
+
+.search {
+  margin-top: 35px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.like-comment {
+  text-align:center;
+}
+
+.input.select.required.book_category {
+  width: 100%;
+}
+
+.input.select.optional.book_authors {
+  width: 100%;
+}

@@ -1,33 +1,61 @@
 <% provide :title, t(".title") %>
 <%= render "search" %>
-<% if !@book_as_max_like.nil? %>
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= t ".like_max" %></h3>
-    </div>
-    <div class="panel-body">
-      <div class="row">
-        <%= render @book_as_max_like %>
-      </div>
-    </div>
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= t ".read_max" %></h3>
-    </div>
-    <div class="panel-body">
-      <div class="row">
-        <%= render @book_as_max_reading %>
-      </div>
-    </div>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t ".all" %></h3>
   </div>
-<% else %>
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= t ".all" %></h3>
+  <div class="panel-body">
+    <div class="row">
+      <%= render @books %>
     </div>
-    <div class="panel-body">
-      <div class="row">
-        <%= render @books %>
-      </div>
-    </div>
+    <%= paginate @books, theme: "twitter-bootstrap-3" %>
   </div>
-<% end %>
+</div>
+<div class="panel-body">
+  <div class="read">
+    <p class="title"><%= t ".like"%></p>
+    <div class="row">
+      <% @book_as_max_like.each do |book_like| %>
+        <div class="col-md-3">
+          <div class="index-book">
+            <%= image_tag book_like.image_url, class: "avatar_read" %>
+            <div class="content-book">
+              <%= link_to book_like.name, book_like %>
+            </div>
+            <div class="like-comment">
+              <%= book_like.likes.count %>
+              <%= image_tag("like.png", class: "icon") %>
+              <%= book_like.comments.count %>
+              <%= image_tag("comment.png", class: "icon") %></br>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= paginate @book_as_max_like, theme: "twitter-bootstrap-3" %>
+  </div>
+</div>
+<div class="panel-body">
+  <div class="read">
+    <p class="title"><%= t ".read"%></p>
+    <div class="row">
+      <% @book_as_max_reading.each do |book_reading| %>
+        <div class="col-md-3">
+          <div class="index-book">
+            <%= image_tag book_reading.image_url, class: "avatar_read" %>
+            <div class="content-book">
+              <%= link_to book_reading.name, book_reading %>
+            </div>
+            <div class="like-comment">
+              <%= book_reading.likes.count %>
+              <%= image_tag("like.png", class: "icon") %>
+              <%= book_reading.comments.count %>
+              <%= image_tag("comment.png", class: "icon") %></br>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= paginate @book_as_max_reading, theme: "twitter-bootstrap-3" %>
+  </div>
+</div>

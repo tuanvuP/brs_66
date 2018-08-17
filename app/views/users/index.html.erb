@@ -6,7 +6,8 @@
     <%= form_tag users_path, method: "get", enforce_utf8: false do %>
       <div class="row">
         <div class="col-md-10">
-          <%= text_field_tag :search, params[:search], class: "form-control" %>
+          <%= text_field_tag :search, params[:search], class: "form-control",
+            placeholder: t(".name") %>
         </div>
         <div class="col-md-2">
           <%= submit_tag t(".search"), name: nil, class: "btn btn-info" %>

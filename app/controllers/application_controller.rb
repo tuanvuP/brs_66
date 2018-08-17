@@ -35,6 +35,11 @@ class ApplicationController < ActionController::Base
     @cart = session[:cart] ||= {}
   end
 
+  def list_categories
+    @categories = Category.all.select(:id, :title)
+      .map{|category| [category.title, category.id]}
+  end
+
   protected
 
   def configure_permitted_parameters

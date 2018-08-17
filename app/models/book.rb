@@ -1,7 +1,7 @@
 class Book < ApplicationRecord
   include Filterable
 
-  belongs_to :categories, optional: true
+  belongs_to :category, optional: true
   has_many :comments, dependent: :destroy
   has_many :likes
   has_many :mark_books
@@ -19,12 +19,6 @@ class Book < ApplicationRecord
   validates :price, presence: true
   validates :category_id, presence: true
 
-  scope :list_book, ->{select :id, :name, :image, :price,
-                        :category_id, :created_at}
-  scope :by_book_ids, -> book_ids{where id: book_ids}
-  scope :by_id, -> book_id{where id: book_id}
-  scope :search_name, -> search_name {where "name LIKE ?", "%#{search_name}%"}
-  scope :category_id, -> category_id {where category_id: category_id}
   scope :order_by, ->{order created_at: :desc}
   scope :read_by, ->user{joins(:mark_books).where("mark_books.user_id = ? AND
     mark_books.status = ?", user.id,
@@ -44,10 +38,4 @@ class Book < ApplicationRecord
 
   ratyrate_rateable "rating"
   mount_uploader :image, ImageUploader
-
-  class << self
-    def search key
-      where("name LIKE ? OR description LIKE ?", "%#{key}%", "%#{key}%")
-    end
-  end
 end
