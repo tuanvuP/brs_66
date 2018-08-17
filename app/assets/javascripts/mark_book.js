@@ -10,7 +10,12 @@ $(document).ready(function(){
       data: data,
       dataType: 'json',
       success: function(){
-        if ($('#status').attr('value') == 'read') {
+        if ($('#status').attr('value') == 'reading') {
+          $('#status').val('read');
+          $('#button_status').val('Read');
+          $('#button_status').removeClass('btn-primary');
+          $('#button_status').addClass('btn-success');
+        } else if ($('#status').attr('value') == 'read') {
           $('#status').val('unread');
           $('#button_status').val('Unread');
           $('#button_status').removeClass('btn-success');
@@ -20,11 +25,6 @@ $(document).ready(function(){
           $('#button_status').val('Reading');
           $('#button_status').removeClass('btn-default');
           $('#button_status').addClass('btn-primary');
-        } else if ($('#status').attr('value') == 'reading') {
-          $('#status').val('read');
-          $('#button_status').val('Read');
-          $('#button_status').removeClass('btn-primary');
-          $('#button_status').addClass('btn-success');
         }
       }
     });

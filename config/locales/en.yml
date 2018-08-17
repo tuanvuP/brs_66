@@ -41,7 +41,7 @@ en:
 
     confirmations:
       title: "Resend confirmation email"
-    mailer:  
+    mailer:
       confirmation_instructions:
         welcom: "Welcom"
         p_confirm: "You can confirm your account email through the link below:"
@@ -64,7 +64,7 @@ en:
         p_lock: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
         p_click: "Click the link below to unlock your account:"
         unlock: "Unlock my account"
-        
+
   layouts:
     header:
       author: "Author"
@@ -410,7 +410,7 @@ en:
     show:
       country: "Country:"
       book: "Books By"
-      danger: "Not find author."
+      not_exit: "Not find author."
       publish: "Publish:"
     follow:
       submit: "Follow"

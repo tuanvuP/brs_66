@@ -1,17 +1,17 @@
 <%= form_for mark_book, html: {id: "status_form"} do |f| %>
   <%= f.hidden_field :book_id, value: @book.id %>
   <%= f.hidden_field :user_id, value: current_user.id if current_user != nil %>
-  <% if mark_book.read? || mark_book.status == nil %>
+  <% if mark_book.unread? || mark_book.status == nil %>
+    <%= f.hidden_field :status, id: "status", value: "reading" %>
+    <%= f.submit t(".reading"),
+      class:"btn btn-primary", id: "button_status" %>
+  <% elsif mark_book.reading? %>
+    <%= f.hidden_field :status, id: "status", value: "read" %>
+    <%= f.submit t(".read"),
+      class:"btn btn-success", id: "button_status" %>
+  <% else %>
     <%= f.hidden_field :status, id: "status", value: "unread" %>
     <%= f.submit t(".unread"),
       class:"btn btn-default", id: "button_status" %>
-  <% elsif mark_book.unread? %>
-    <%= f.hidden_field :status, id: "status", value: "reading" %>
-    <%= f.submit t(".reading"),
-      class:"btn btn-success", id: "button_status" %>
-  <% else %>
-    <%= f.hidden_field :status, id: "status", value: "read" %>
-    <%= f.submit t(".read"),
-      class:"btn btn-primary", id: "button_status" %>
   <% end %>
 <% end %>

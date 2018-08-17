@@ -29,7 +29,12 @@
     <br>
     <% if user_signed_in? && !current_user.admin? %>
       <div class="add-to-cart">
-        <%= link_to link_to t(".add_cart"), add_cart_path(@book), class: "btn btn-primary" %>
+        <%= link_to link_to t(".add_cart"), add_cart_path(@book),
+          class: "btn btn-primary" %>
+      </div>
+      <div class="share-book">
+        <%= social_share_button_tag @book.name, url: book_path(@book),
+          desc: @book.name %>
       </div>
     <% end %>
     <hr>

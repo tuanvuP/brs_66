@@ -1,7 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :find_author, except: %i(index new create)
   before_action :find_author_book, only: :show
-  before_action :load_user, except: %i(index new create)
 
   def index
     @authors = Author.list_author
@@ -27,7 +26,7 @@ class AuthorsController < ApplicationController
 
   def follower_authors
     @title = t ".title"
-    @users = @user.follower_authors.follower_author(@follower_author)
+    @users = @author.follower_authors.follower_author(@follower_author)
                   .page(params[:page])
                   .per Settings.user.per_page
     render :show_follow_author

@@ -10,7 +10,7 @@ class BooksController < ApplicationController
                                .page(params[:page]).per Settings.book.per_page
     @search_books = Book.ransack params[:q]
     @books = @search_books.result.includes(:category).order_by
-               .page(params[:page]).per Settings.book.per_page
+                          .page(params[:page]).per Settings.book.per_page
   end
 
   def show
