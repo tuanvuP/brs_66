@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {confirmation: "confirmations"}
   root "books#index"
   get "/help", to: "static_pages#help"
   get "/login", to: "sessions#new"

@@ -10,16 +10,17 @@
     <% if @minimum_password_length %>
       <em><%= @minimum_password_length %> <%= t ".char" %></em><br />
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit t(".submit") %>
+    <br>
+    <%= f.submit t(".submit"), class: "btn btn-primary" %>
   </div>
 <% end %>
 

@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  before_filter :authenticate_user!, except: :show
   before_action :load_cart, :load_book, only: %i(add_cart remove_book update_quantity)
   before_action :load_book_in_cart, only: :index
 
