@@ -27,7 +27,7 @@
       </div>
     <% end %>
     </br>
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <div class="add-to-cart">
         <%= link_to link_to t(".add_cart"), add_cart_path(@book), class: "btn btn-primary" %>
       </div>

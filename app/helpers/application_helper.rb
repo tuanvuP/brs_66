@@ -7,4 +7,8 @@ module ApplicationHelper
   def unfollow_user
     unfollow_user = current_user.active_follows.find_by follower_id: @user.id
   end
+
+  def unfollow_author
+    unfollow_author = current_user.active_follows.find_by follower_id: @author.id
+  end
 end

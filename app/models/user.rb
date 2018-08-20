@@ -18,12 +18,16 @@ class User < ApplicationRecord
     dependent: :destroy
   has_many :followers, through: :passive_follows, source: :user
   has_many :following, through: :active_follows,  source: :follower
+  has_many :follower_authors, through: :passive_follows, source: :user
+  has_many :following_author, through: :active_follows,  source: :follower
 
   ratyrate_rater
 
   mount_uploader :avatar, ImageUploader
 
   scope :following_by, ->following_by{where("follows.type_follow = ?", Follow.type_follows[:user]).order created_at: :desc}
+
+  scope :follower_author, ->follower_author{where("follows.type_follow = ?", Follow.type_follows[:author]).order created_at: :desc}
 
   class << self
     def search key
@@ -73,5 +77,9 @@ class User < ApplicationRecord
 
   def following? other_user
     following.include? other_user
+  end
+
+  def following_author? author
+    following_author.include? author
   end
 end

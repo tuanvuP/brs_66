@@ -3,7 +3,7 @@ en:
     password:
       edit:
         title: "Change your password"
-        new_pass: "New password" 
+        new_pass: "New password"
         submit: "Change my password"
         char: "characters minimum"
       new:
@@ -38,7 +38,7 @@ en:
         receive: "Didn't receive confirmation instructions?"
         lock: "Didn't receive unlock instructions?"
         sign: "Sign in with"
-        
+
   layouts:
     header:
       author: "Author"
@@ -361,6 +361,14 @@ en:
       book: "Books By"
       danger: "Not find author."
       publish: "Publish:"
+    follow:
+      submit: "Follow"
+    unfollow:
+      submit: "Unfollow"
+    follower_authors:
+      title: "Followers"
+    following:
+      title: "Following authors"
 
   date:
     formats:

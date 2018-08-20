@@ -10,7 +10,7 @@
     <div id = "content-<%= comment.id %>">
       <p><%= comment.content %></p>
     </div>
-    <% if comment.parent? and logged_in? %>
+    <% if comment.parent? and user_signed_in? %>
       <%= link_to t(".reply"), new_reply_comment_path(comment), remote: true,
         id: "comment-#{comment.id}" %>
     <% end %>

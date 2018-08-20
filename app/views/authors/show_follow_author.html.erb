@@ -1,0 +1,27 @@
+<% provide :title, @title %>
+<div class="row col-md-12">
+  <div class="col-md-4">
+    <span class="name-author"><%= @author.name %></span><br>
+    <i>
+      (<%= l(@author.brith_year, format: :year) %>) <br>
+      <%= t ".country" %> <%= @author.country %>
+    </i>
+    <hr>
+    <p class="biography"><%= @author.biography %></p>
+    <a href="<%= follower_authors_author_path(@author) %>">
+      <strong id="followers_author" class="stat">
+        <%= @user.follower_authors.follower_author(@author).count %>
+      </strong>
+      <%= t ".followers" %>
+    </a>
+  </div>
+  <div class="col-md-8">
+    <p class="title-favorite"><%= @title %></p>
+    <% if @users.any? %>
+      <ul class="users-follow">
+        <%= render @users %>
+      </ul>
+      <%= paginate @users, theme: "twitter-bootstrap-3" %>
+    <% end %>
+  </div>
+</div>
