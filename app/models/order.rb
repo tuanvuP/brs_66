@@ -9,6 +9,7 @@ class Order < ApplicationRecord
   validates :phone, presence: true
   validates :address, presence: true
 
-  scope :by_id, -> user{where user_id: user}
+  scope :by_id, ->user{where user_id: user}
+  scope :by_status, ->value{where status: value}
   
 end

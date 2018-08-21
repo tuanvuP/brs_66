@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_filter :authenticate_user!, except: :show
+  before_action :authenticate_user!, except: :show
   before_action :load_cart, :load_book, only: %i(add_cart remove_book update_quantity)
   before_action :load_book_in_cart, only: :index
 
@@ -14,7 +14,7 @@ class CartsController < ApplicationController
 
   def update_quantity
     session[:cart][params[:key]] = params[:quantity].to_i
-    @book_in_cart = Book.by_book_ids session[:cart].keys
+    @book_in_cart = Book.by_id session[:cart].keys
     respond_to do |format|
       format.js
     end

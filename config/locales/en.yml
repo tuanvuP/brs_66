@@ -82,6 +82,7 @@ en:
       order: "Order"
       users: "Users"
       authors: "Authors"
+      orders: "Orders"
     footer:
       copyright: "@Coyright M,H , Book Review"
 
@@ -161,6 +162,8 @@ en:
       cart_not_found: "Cart not found"
     load_book:
       not_found_book: "Can not found this book"
+    load_order:
+      not_found_order: "Can not found this order"
 
   static_pages:
     home:
@@ -342,13 +345,29 @@ en:
       destroy:
         success: "Delete book success."
         danger: "Delete book not success."
+    order_mailer:
+      notice_request:
+        hi: "Hi"
+        invite: "Your order has been checked, you will be received soon, go back to 
+          review more book: "
+        home: "Home"
+    orders:
+      update:
+        sent_email: "Notice email was sent to customer"
+      index:
+        title: "Orders"
+        uncheck_list: "Unchecked list"
+        checked_list: "Checked list"
+        list_uncheck: "List uncheck orders"
+        list_checked: "List checked orders"
+        check: "Send notice"
+
   carts:
     load_book_in_cart:
       danger: "No book in cart"
     index:
       title: "Cart"
       create_order: "Create order"
-      total_money: "Total money: %{total_m}"
       danger: "You don't have any book in cart"
       p1: "There are no items in your shopping cart.  Please "
       p2: " and add some items to your cart."
@@ -360,6 +379,7 @@ en:
       subtotal: "Subtotal"
       action: "Action"
       remove: "Remove"
+      total_money: "Total money: %{total_m}"
 
   orders:
     new:
@@ -370,14 +390,16 @@ en:
       address: "Address"
     create:
       create_order_success: "Create order success"
+      danger: "Full name, phone and adress can't be blank !"
     index:
       title: "Order"
       your_order: "Your order"
       total: "Total"
       total_money: "Total order money:"
       p: "You dont have any order"
-      cancel: "Cancel this order"
       canceled: "Canceled"
+    cancel:
+      cancel: "Cancel this order"
 
   authors:
     index:

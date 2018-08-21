@@ -40,6 +40,13 @@ class ApplicationController < ActionController::Base
       .map{|category| [category.title, category.id]}
   end
 
+  def load_order
+    @order = Order.find_by id: params[:id]
+    return if @order
+    flash[:danger] = t ".not_found_order"
+    redirect_to root_path
+  end
+
   protected
 
   def configure_permitted_parameters

@@ -18,7 +18,8 @@ class Book < ApplicationRecord
   validates :publish_date, presence: true
   validates :price, presence: true
   validates :category_id, presence: true
-
+  
+  scope :by_id, -> book_id{where id: book_id}
   scope :order_by, ->{order created_at: :desc}
   scope :read_by, ->user{joins(:mark_books).where("mark_books.user_id = ? AND
     mark_books.status = ?", user.id,
