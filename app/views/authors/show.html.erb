@@ -10,7 +10,7 @@
     <p class="biography"><%= @author.biography %></p>
     <a href="<%= follower_authors_author_path(@author) %>">
       <strong id="followers_author" class="stat">
-        <%= @user.follower_authors.follower_author(@follower_author).count %>
+        <%= @author.follower_authors.follower_author(@follower_author).count %>
       </strong>
       <%= t ".followers" %>
     </a>

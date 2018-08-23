@@ -18,6 +18,7 @@
 //= require jquery.raty
 //= require ratyrate
 //= require chosen
+//= require social-share-button
 //= require_tree .
 
 

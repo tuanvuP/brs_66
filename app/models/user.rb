@@ -18,7 +18,6 @@ class User < ApplicationRecord
     dependent: :destroy
   has_many :followers, through: :passive_follows, source: :user
   has_many :following, through: :active_follows,  source: :follower
-  has_many :follower_authors, through: :passive_follows, source: :user
   has_many :following_author, through: :active_follows,  source: :follower
 
   ratyrate_rater

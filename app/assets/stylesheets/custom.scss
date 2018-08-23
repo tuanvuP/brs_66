@@ -412,7 +412,12 @@ footer a:hover {
   text-align:center;
 }
 
-.input.select.optional.book_authors, .list, .order-summary, 
+.input.select.optional.book_authors, .list, .order-summary,
 .input.select.required.book_category {
   width: 100%;
+}
+
+.share-book {
+  padding-top: 10px;
+  margin-left: 130px;
 }

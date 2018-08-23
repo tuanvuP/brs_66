@@ -27,6 +27,7 @@ gem "rubocop", "~> 0.55.0", require: false
 gem "sass-rails", "~> 5.0"
 gem "simple_form"
 gem "sqlite3"
+gem "social-share-button"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 

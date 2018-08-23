@@ -2,6 +2,9 @@ class Author < ApplicationRecord
   has_many :author_books, dependent: :destroy
   has_many :books, through: :author_books
   has_many :follows
+  has_many :passive_follows, class_name: Follow.name, foreign_key: :follower_id,
+    dependent: :destroy
+  has_many :follower_authors, through: :passive_follows, source: :user
 
   validates :name, presence: true
   validates :brith_year, presence: true

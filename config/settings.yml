@@ -25,6 +25,7 @@ user_helper:
 
 book:
   per_page: 8
+  limit: 8
 
 rate:
   stars: 5
