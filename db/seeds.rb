@@ -1,20 +1,20 @@
-User.create! username: "Admin",
+user = User.new username: "Admin",
              email: "admin@gmail.com",
              password: "123456",
              avatar: "",
              password_confirmation: "123456",
              admin: true
+user.skip_confirmation!
+user.save!
 
-49.times do |n|
-  name  = Faker::Name.name
-  email = "user-#{n+1}@gmail.com"
-  password = "123456"
-  User.create! username: name,
-               email: email,
-               avatar: "",
-               password: password,
-               password_confirmation: password
-end
+user2 = User.new username: "Admin",
+             email: "user1@gmail.com",
+             password: "123456",
+             avatar: "",
+             password_confirmation: "123456",
+             admin: false
+user2.skip_confirmation!
+user2.save!
 
 Category.create!([{
   title: "Ruby",

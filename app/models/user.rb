@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :confirmable, :registerable,
+         :recoverable, :rememberable, :validatable, :trackables
   attr_accessor :remember_token
 
   has_many :comments

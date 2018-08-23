@@ -1,6 +1,6 @@
 en:
   devise:
-    password:
+    passwords:
       edit:
         title: "Change your password"
         new_pass: "New password"
@@ -9,7 +9,7 @@ en:
       new:
         title: "Forgot your password?"
         submit: "Send me reset password instructions"
-    registration:
+    registrations:
       new:
         title: "Sign up"
         submit: "Sign up"
@@ -39,6 +39,32 @@ en:
         lock: "Didn't receive unlock instructions?"
         sign: "Sign in with"
 
+    confirmations:
+      title: "Resend confirmation email"
+    mailer:  
+      confirmation_instructions:
+        welcom: "Welcom"
+        p_confirm: "You can confirm your account email through the link below:"
+        p_link: "Confirm my account"
+      email_changed:
+        hello: "Hello"
+        p_contact: "We're contacting you to notify you that your email is being changed to"
+        p_contact_email: "We're contacting you to notify you that your email has been changed to"
+      password_changed:
+        hello: "Hello"
+        p_pass: "We're contacting you to notify you that your password has been changed."
+      reset_password_instructions:
+        hello: "Hello"
+        p_ask: "Someone has requested a link to change your password. You can do this through the link below."
+        p_request: "If you didn't request this, please ignore this email."
+        changed: "Change my password"
+        p_changed: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions:
+        hello: "Hello"
+        p_lock: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        p_click: "Click the link below to unlock your account:"
+        unlock: "Unlock my account"
+        
   layouts:
     header:
       author: "Author"
@@ -106,6 +132,7 @@ en:
     show:
       favorite: "Favorite book"
       reading: "Reading book"
+      not_exit: "This user not exist"
     list_favorites:
       favorite: "Favorite this book"
       ago: "ago."
