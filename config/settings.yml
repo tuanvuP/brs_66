@@ -30,3 +30,6 @@ rate:
   stars: 5
 cart:
   quantity: 1
+order:
+  uncheck: 0
+  checked: 1

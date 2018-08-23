@@ -1,4 +1,4 @@
-class Admin::BooksController < ApplicationController
+class Admin::BooksController < Admin::AdminController
   before_action :load_book, except: %i(index new create)
   before_action :list_categories, only: :index
 

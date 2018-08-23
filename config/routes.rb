@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :authors, except: :destroy
+    resources :books, except: :show
+    resources :orders, only: %i(index update)
   end
 
   resources :users do
@@ -34,10 +36,6 @@ Rails.application.routes.draw do
   resources :mark_books, only: %i(create update)
   resources :favorites
   resources :orders, only: %i(index new create destroy)
-
-  namespace :admin do
-    resources :books
-  end
 
   resources :follows, only: %i(create destroy create_author destroy_author)
   post "/follows/create_author", to: "follows#create_author", as: :create_author

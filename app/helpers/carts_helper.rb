@@ -6,8 +6,10 @@ module CartsHelper
   def total_money
     @cart = session[:cart]
     sum = 0
-    @cart.each do |key, val|
-      sum += val * Book.by_id(key)[0].price
+    if @cart
+      @cart.each do |key, val|
+        sum += val * Book.by_id(key)[0].price
+      end
     end
     sum
   end
@@ -17,6 +19,6 @@ module CartsHelper
   end
 
   def load_book_in_cart
-  	@book_in_cart = Book.by_book_ids session[:cart].keys
+  	@book_in_cart = session[:cart].present? ? Book.by_id(session[:cart].keys) : nil
   end
 end
