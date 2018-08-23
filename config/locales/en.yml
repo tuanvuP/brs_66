@@ -102,6 +102,7 @@ en:
       action: "Action"
       edit: "Edit"
       search: "Search"
+      name: "Name's or Email's user"
     show:
       favorite: "Favorite book"
       reading: "Reading book"
@@ -189,8 +190,8 @@ en:
       $: "$"
       like: "Like"
       comment: "Comment"
-      like_max: "Like Max"
-      read_max: "Reading Max"
+      like: "Favorite books"
+      read: "Books read many"
       all: "All book"
     load_book:
       danger: "Not find book!"
@@ -356,6 +357,7 @@ en:
       title: "List authors"
       search: "Search"
       detail: "<- Detail ->"
+      name: "Name's author"
     show:
       country: "Country:"
       book: "Books By"

@@ -1,13 +1,16 @@
 class BooksController < ApplicationController
   before_action :load_book, except: %i(index new create)
   before_action :load_mark_book, only: :show
+  before_action :list_categories, only: :index
 
   def index
-    @book_as_max_like = Book.filter(params.slice :search_name, :category_id, :like_max)
-      .page(params[:page]).per Settings.book.per_page
-    @categories = Category.all
-    @book_as_max_reading = Book.reading_max :reading
-    @books = Book.list_book.page(params[:page]).per Settings.book.per_page
+    @book_as_max_like = Book.like_max
+                            .page(params[:page]).per Settings.book.per_page
+    @book_as_max_reading = Book.reading_max(:reading)
+                               .page(params[:page]).per Settings.book.per_page
+    @search_books = Book.ransack params[:q]
+    @books = @search_books.result.includes(:category).order_by
+               .page(params[:page]).per Settings.book.per_page
   end
 
   def show

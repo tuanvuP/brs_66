@@ -1,23 +1,36 @@
 <% provide :title, t(".books") %>
 <h1><%= t ".books" %></h1>
 <div class="row col-sm-12">
-  <div class="col-sm-4">
-    <%= link_to t(".create"), new_admin_book_path, class: "btn btn-info" %>
-  </div>
-  <div class="col-sm-8">
-    <%= form_tag admin_books_path, method: "get", enforce_utf8: false do %>
-      <div class="row">
-        <div class="col-sm-10">
-          <%= text_field_tag :search, params[:search], class: "form-control" %>
-        </div>
-        <div class="col-sm-2">
-          <%= submit_tag t(".search"), name: nil, class: "btn btn-info" %>
+  <%= search_form_for @search_books, url: admin_books_path do |f| %>
+    <div class="input-group col-sm-12">
+      <div class="col-md-4">
+        <%= f.label :name_or_description %>
+        <%= f.search_field :name_or_description_cont, class: "form-control" %>
+      </div>
+      <div class="col-md-3">
+        <%= f.label :category_id %>
+        <%= f.select :category_id_start, options_for_select(@categories
+          .map{|key, value| [key, value]}), {include_blank: true},
+          {class: "chosen-select"} %>
+      </div>
+      <div class="col-md-3">
+        <%= f.label :price %>
+        <div class="row">
+          <%= f.number_field :price_gteq, class: "form-control col-sm-5", pattern: "[0-9]*" %>
+          <%= f.label :price_lteq, "-", class: "col-sm-1" %>
+          <%= f.number_field :price_lteq, class: "form-control col-sm-5", pattern: "[0-9]*" %>
         </div>
       </div>
-    <% end %>
-  </div>
+      <div class="col-md-2">
+        <%= submit_tag t(".search"), name: nil, class: "search btn btn-info" %>
+      </div>
+    </div>
+  <% end %>
 </div>
 </br>
+<div class="form-group">
+  <%= link_to t(".create"), new_admin_book_path, class: "btn btn-info" %>
+</div>
 <%= paginate @books, theme: "twitter-bootstrap-3" %>
 <table class="table table-bordered">
   <thead class="thead-light">

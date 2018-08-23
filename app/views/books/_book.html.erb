@@ -3,12 +3,16 @@
     <%= image_tag book.image_url, atl: "image_book", class: "book", style: "height: 18rem;"%>
     <div class="caption">
       <p><%= link_to book.name.truncate(20), book %></p>
+      <div class="like-comment">
+        <%= book.likes.count %>
+        <%= image_tag("like.png", class: "icon") %>
+        <%= book.comments.count %>
+        <%= image_tag("comment.png", class: "icon") %>
+      </div>
       <p class="price">
         <%= book.price %> <%= t ".$" %>
         <%= link_to t(".add_cart"), add_cart_path(book), class: "btn btn-primary" %>
       </p>
-      <span class="glyphicon glyphicon-thumbs-up"></span> <%= book.likes.count %> <%= t ".like" %>&nbsp;
-      <span class="glyphicon glyphicon-comment"></span> <%= book.comments.count %> <%= t ".comment" %>
     </div>
   </div>
 </div>

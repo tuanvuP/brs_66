@@ -1,11 +1,11 @@
 class Admin::BooksController < ApplicationController
   before_action :load_book, except: %i(index new create)
-  before_action :list_categories, :list_authors, only: %i(new edit)
+  before_action :list_categories, only: :index
 
   def index
-    @books = Book.order_by.search(params[:search])
-                 .page(params[:page])
-                 .per Settings.per_page
+    @search_books = Book.ransack params[:q]
+    @books = @search_books.result.includes(:category).order_by
+               .page(params[:page]).per Settings.book.per_page
   end
 
   def new
@@ -58,13 +58,5 @@ class Admin::BooksController < ApplicationController
     return if @book
     flash[:danger] = t ".danger"
     redirect_to admin_books_path
-  end
-
-  def list_categories
-    @categories = Category.all.select(:id, :title).map{|category| [category.title, category.id]}
-  end
-
-  def list_authors
-    @authors = Author.all.select(:id, :name).map{|author| [author.name, author.id]}
   end
 end

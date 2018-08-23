@@ -1,19 +1,26 @@
-<%= form_tag books_path, method: "get", enforce_utf8: false do %>
+<%= search_form_for @search_books, url: books_path do |f| %>
   <div class="form-group top_search">
     <div class="input-group col-sm-12">
-      <div class="col-md-6">
-        <%= text_field_tag :search_name, params[:search_name], class: "form-control" %>
+      <div class="col-md-4">
+        <%= f.label :name_or_description %>
+        <%= f.search_field :name_or_description_cont, class: "form-control" %>
       </div>
       <div class="col-md-3">
-        <select name="category_id" class="form-control">
-          <option value=""></option>
-          <% @categories.each do |category| %>
-            <option value="<%= category.id %>"><%= category.title %></option>
-          <% end %>
-        </select>
+        <%= f.label :categories %>
+        <%= f.select :category_id_start, options_for_select(@categories
+          .map{|key, value| [key, value]}), {include_blank: true},
+          {class: "chosen-select"} %>
       </div>
       <div class="col-md-3">
-        <%= submit_tag t(".search"), name: nil, class: "btn btn-info" %>
+        <%= f.label :price %>
+        <div class="row">
+          <%= f.number_field :price_gteq, class: "form-control col-sm-5", pattern: "[0-9]*" %>
+          <%= f.label :price_lteq, "-", class: "col-sm-1" %>
+          <%= f.number_field :price_lteq, class: "form-control col-sm-5", pattern: "[0-9]*" %>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <%= submit_tag t(".search"), name: nil, class: "search btn btn-info" %>
       </div>
     </div>
   </div>
