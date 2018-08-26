@@ -1,0 +1,39 @@
+<% provide :title, @book.name %>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="carousel-inner">
+      <div class="item active">
+        <%= image_tag @book.image_url, class: "show-book" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="title">
+      <span class="title-book"><%= @book.name %></span>
+    </div>
+    <div class="description">
+      <div class="row">
+        <%= t ".Rating" %>
+        <%= rating_for @book, "rating",
+          stars: Settings.rate.stars, disable_after_rate: false,
+          half_show: false %>
+        <%= @book.average("rating").present? ? @book.average("rating").avg : 0 %> -
+        <%= @book.rates("rating").count %>
+      </div>
+      <hr>
+      <%= @book.description %>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row col-md-12">
+  <div class="read">
+    <p class="title"><%= @title %></p>
+    <% if @users.any? %>
+    <ul class="users-follow">
+      <%= render @users %>
+    </ul>
+    <%= paginate @users, theme: "twitter-bootstrap-3" %>
+  <% end %>
+  </div>
+</div>

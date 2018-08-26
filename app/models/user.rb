@@ -21,6 +21,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_follows, source: :user
   has_many :following, through: :active_follows,  source: :follower
   has_many :following_author, through: :active_follows,  source: :follower
+  has_many :following_book, through: :active_follows,  source: :follower
 
   ratyrate_rater
 
@@ -30,6 +31,8 @@ class User < ApplicationRecord
 
   scope :follower_author, ->follower_author{where("follows.type_follow = ?", Follow.type_follows[:author]).order created_at: :desc}
 
+  scope :follower_book, ->follower_book{where("follows.type_follow = ?", Follow.type_follows[:book]).order created_at: :desc}
+
   class << self
     def search key
       where("username LIKE ? OR email LIKE ?", "%#{key}%", "%#{key}%")
@@ -37,8 +40,8 @@ class User < ApplicationRecord
 
     def new_with_session params, session
       super.tap do |user|
-        if data = session["devise.#{provider}_data"] &&
-          session["devise.#{provider}_data"]["extra"]["raw_info"]
+        if data = session["devise.facebook_data"] &&
+          session["devise.facebook_data"]["extra"]["raw_info"]
           user.email = data["email"] if user.email.blank?
         end
       end
@@ -101,5 +104,9 @@ class User < ApplicationRecord
 
   def following_author? author
     following_author.include? author
+  end
+
+  def following_book? book
+    following_book.include? book
   end
 end

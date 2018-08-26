@@ -1,0 +1,6 @@
+<%= form_for(Follow.new, as: :create_book, url: create_book_path, remote: true) do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :type_follow, value: "book" %>
+  <%= f.hidden_field :follower_id, value: @book.id %>
+  <%= f.submit t(".submit"), id: "follow", class: "btn btn-primary" %>
+<% end %>

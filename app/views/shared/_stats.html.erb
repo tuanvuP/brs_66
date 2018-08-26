@@ -19,4 +19,10 @@
     </strong>
     <%= t ".following_author" %>
   </a>
+  <a href="<%= following_book_book_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @user.following_book.follower_book(@follower_book).count %>
+    </strong>
+    <%= t ".following_book" %>
+  </a>
 </div>

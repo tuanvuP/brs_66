@@ -9,6 +9,10 @@ class Book < ApplicationRecord
   has_many :favorites
   has_many :author_books, dependent: :destroy
   has_many :authors, through: :author_books
+  has_many :follows
+  has_many :passive_follows, class_name: Follow.name, foreign_key: :follower_id,
+    dependent: :destroy
+  has_many :follower_books, through: :passive_follows, source: :user
 
   accepts_nested_attributes_for :author_books
 
@@ -37,7 +41,11 @@ class Book < ApplicationRecord
   end)
   scope :author_book_by, ->author{joins(:author_books)
     .where("author_books.author_id = ?", author.id).order created_at: :desc}
-
+  scope :following_book, (lambda do|user|
+    joins("LEFT JOIN follows ON follows.follower_id = books.id")
+    .where("follows.type_follow = ? AND follows.user_id = ?",
+    Follow.type_follows[:book], user.id).order(created_at: :desc)
+  end)
   ratyrate_rateable "rating"
   mount_uploader :image, ImageUploader
 end

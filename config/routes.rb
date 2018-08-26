@@ -43,11 +43,19 @@ Rails.application.routes.draw do
   resources :follows, only: %i(create destroy create_author destroy_author)
   post "/follows/create_author", to: "follows#create_author", as: :create_author
   delete "/follows/destroy_author/:id", to: "follows#destroy_author", as: :destroy_author
+  post "/follows/create_book", to: "follows#create_book", as: :create_book
+  delete "/follows/destroy_book/:id", to: "follows#destroy_book", as: :destroy_book
 
   resources :authors
   resources :authors do
     member do
       get :following, :follower_authors
+    end
+  end
+
+  resources :books do
+    member do
+      get :following_book, :follower_books
     end
   end
 end

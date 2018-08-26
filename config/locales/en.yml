@@ -247,6 +247,14 @@ en:
       search: "Search"
     book:
       .add_cart: "add to cart"
+    follow:
+      submit: "Follow"
+    unfollow:
+      submit: "Unfollow"
+    follower_books:
+      title: "Followers"
+    following_book:
+      title: "Following books"
 
   mark_books:
     mark_book:
@@ -348,7 +356,7 @@ en:
     order_mailer:
       notice_request:
         hi: "Hi"
-        invite: "Your order has been checked, you will be received soon, go back to 
+        invite: "Your order has been checked, you will be received soon, go back to
           review more book: "
         home: "Home"
     orders:
