@@ -1,20 +1,22 @@
 class BooksController < ApplicationController
   before_action :load_book, except: %i(index new create)
-  before_action :load_mark_book, only: :show
+  before_action :load_mark_book, :find_book_author, only: :show
   before_action :list_categories, only: :index
   before_action :load_user, only: :following_book
 
   def index
-    @book_as_max_like = Book.like_max
+    @book_as_favorites = Book.favorites
                             .page(params[:page]).per Settings.book.per_page
     @book_as_max_reading = Book.reading_max(:reading)
                                .page(params[:page]).per Settings.book.per_page
     @search_books = Book.ransack params[:q]
     @books = @search_books.result.includes(:category).order_by
                           .page(params[:page]).per Settings.book.per_page
+    @book_carousel = Book.rating_by.limit Settings.book.carousel.limit
   end
 
   def show
+    @authors = Author.book_by @book
     @comments = @book.comments.all
     @comment = @book.comments.build
   end
@@ -53,5 +55,10 @@ class BooksController < ApplicationController
     if current_user.present?
       @mark_book = MarkBook.find_by(user_id: current_user.id, book_id: @book.id) || MarkBook.new
     end
+  end
+
+  def find_book_author
+    @author = Author.find_by id: params[:book_id]
+    return if @author
   end
 end

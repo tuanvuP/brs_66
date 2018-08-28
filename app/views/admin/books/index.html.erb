@@ -1,33 +1,36 @@
 <% provide :title, t(".books") %>
 <h1><%= t ".books" %></h1>
-<div class="row col-sm-12">
-  <%= search_form_for @search_books, url: admin_books_path do |f| %>
-    <div class="input-group col-sm-12">
-      <div class="col-md-4">
-        <%= f.label :name_or_description %>
-        <%= f.search_field :name_or_description_cont, class: "form-control" %>
-      </div>
-      <div class="col-md-3">
-        <%= f.label :category_id %>
-        <%= f.select :category_id_start, options_for_select(@categories
-          .map{|key, value| [key, value]}), {include_blank: true},
-          {class: "chosen-select"} %>
-      </div>
-      <div class="col-md-3">
-        <%= f.label :price %>
-        <div class="row">
-          <%= f.number_field :price_gteq, class: "form-control col-sm-5", pattern: "[0-9]*" %>
-          <%= f.label :price_lteq, "-", class: "col-sm-1" %>
-          <%= f.number_field :price_lteq, class: "form-control col-sm-5", pattern: "[0-9]*" %>
+<%= search_form_for @search_books, url: admin_books_path do |f| %>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= f.label :name_or_description %>
+      <%= f.search_field :name_or_description_cont, class: "form-control" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.label :categories %>
+      <%= f.select :category_id_start, options_for_select(list_categories),
+        {include_blank: true}, {class: "chosen-select form-control"} %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.label :price %>
+      <div class="row">
+        <div class="col-sm-5">
+          <%= f.number_field :price_gteq, pattern: "[0-9]*", class: "form-control" %>
+        </div>
+        <div class="col-sm-2">
+          <%= f.label :price_lteq, "-"%>
+        </div>
+        <div class="col-sm-5">
+          <%= f.number_field :price_lteq, pattern: "[0-9]*", class: "form-control" %>
         </div>
       </div>
-      <div class="col-md-2">
-        <%= submit_tag t(".search"), name: nil, class: "search btn btn-info" %>
-      </div>
     </div>
-  <% end %>
-</div>
-</br>
+    <div class="col-sm-2">
+      <%= submit_tag t(".search"), name: nil, class: "search btn btn-info" %>
+    </div>
+  </div>
+<% end %>
+<br/>
 <div class="form-group">
   <%= link_to t(".create"), new_admin_book_path, class: "btn btn-info" %>
 </div>

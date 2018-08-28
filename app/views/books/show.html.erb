@@ -1,10 +1,8 @@
 <% provide :title, @book.name %>
 <div class="row">
   <div class="col-sm-6">
-    <div class="carousel-inner">
-      <div class="item active">
-        <%= image_tag @book.image_url, class: "show-book" %>
-      </div>
+    <div class="item active">
+      <%= image_tag @book.image_url, class: "show-book" %>
     </div>
     <div class="rate-book">
       <% if current_user %>
@@ -26,9 +24,10 @@
         </div>
       </div>
     <% end %>
-    <br>
+    <br/>
     <% if user_signed_in? && !current_user.admin? %>
       <div class="add-to-cart">
+        <span class="price"><%= @book.price %> <%= t ".$" %></span>
         <%= link_to link_to t(".add_cart"), add_cart_path(@book),
           class: "btn btn-primary" %>
       </div>
@@ -45,17 +44,28 @@
       <span class="title-book"><%= @book.name %></span>
     </div>
     <div class="description">
+      <div class="author-book">
+        <i><%= t ".by" %>
+        <% @authors.each do |author| %>
+          <%= author.name %>,
+        <% end %>
+        </i>
+      </div>
       <div class="row">
-        <%= t ".level" %>
-        <%= @book.average("rating").present? ? @book.average("rating").avg : 0 %> -
-        <%= @book.rates("rating").count %>
-        <div class="row follow-book">
+        <div class="col-sm-6">
+          <%= t ".level" %>
+          <%= @book.average("rating").present? ? @book.average("rating").avg : 0 %> -
+          <%= @book.rates("rating").count %>
+        </div>
+        <div class="col-sm-3">
           <a href="<%= follower_books_book_path(@book) %>">
             <strong id="followers_book" class="stat">
               <%= @book.follower_books.count %>
             </strong>
             <%= t ".followers" %>
           </a>
+        </div>
+        <div class="col-sm-2">
           <%= render "follow_form" if user_signed_in? %>
         </div>
       </div>
@@ -66,6 +76,6 @@
 </div>
 <h3><%= t ".comment" %> (<%= @book.comments.count %>)</h3>
 <%= render "comment_form" %>
-</br>
+<br/>
 <div class="comment"></div>
 <%= render @comments %>

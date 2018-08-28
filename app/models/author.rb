@@ -18,6 +18,8 @@ class Author < ApplicationRecord
     .where("follows.type_follow = ? AND follows.user_id = ?",
     Follow.type_follows[:author], user.id).order(created_at: :desc)
   end)
+  scope :book_by, ->book{joins(:author_books)
+    .where("author_books.book_id = ?", book.id)}
 
   class << self
     def search key

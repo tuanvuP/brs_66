@@ -15,4 +15,8 @@ module ApplicationHelper
   def unfollow_book
     unfollow_book = current_user.active_follows.find_by follower_id: @book.id
   end
+
+  def list_categories
+    @categories = @categories.map{|key, value| [key, value]}
+  end
 end

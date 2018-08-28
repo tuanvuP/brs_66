@@ -30,8 +30,8 @@ class Book < ApplicationRecord
     MarkBook.statuses[:reading]).order created_at: :desc}
   scope :favored_by, ->user{joins(:favorites).where("favorites.user_id = ?",
     user.id).order created_at: :desc}
-  scope :like_max, (lambda do
-    joins(:likes).select(:id, :image, :name, :price, "count(books.id) as like_num")
+  scope :favorites, (lambda do
+    joins(:favorites).select(:id, :image, :name, :price, "count(books.id) as favorite_num")
       .group(:id).order("count(books.id) desc").limit(Settings.book.limit)
   end)
   scope :reading_max, (lambda do |status|
@@ -50,6 +50,8 @@ class Book < ApplicationRecord
   scope :reading_by, ->{joins(:mark_books)
     .where("mark_books.book_id = books.id AND mark_books.status =?",
     MarkBook.statuses[:reading])}
+
+  scope :rating_by, ->{joins("INNER JOIN rating_caches ON books.id = rating_caches.cacheable_id").order("rating_caches.avg desc")}
 
   ratyrate_rateable "rating"
   mount_uploader :image, ImageUploader

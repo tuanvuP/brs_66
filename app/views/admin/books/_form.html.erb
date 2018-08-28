@@ -21,11 +21,11 @@
     <%= f.text_field :price, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.association :category, input_html: {class: "chosen-select"} %>
+    <%= f.association :category, input_html: {class: "chosen-select form-control"} %>
   </div>
   <div class="form-group">
     <%= f.association :authors, multiple: true,
-      input_html: {class: "chosen-select"} %>
+      input_html: {class: "chosen-select form-control"} %>
   </div>
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
   <%= link_to t(".back"), admin_books_path, class: "btn btn-info" %>

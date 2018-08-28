@@ -9,6 +9,7 @@ gem "bootstrap-kaminari-views"
 gem "bootstrap-sass", "3.3.7"
 gem "carrierwave"
 gem "chartkick"
+gem "chosen-rails"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
@@ -23,6 +24,7 @@ gem "mini_magick"
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
+gem "owlcarousel-rails"
 gem "pg_search"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.0"
@@ -56,8 +58,3 @@ group :test do
 end
 
 gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
-
-source "https://rails-assets.org" do
-  gem "rails-assets-chosen"
-  gem "rails-assets-chosen-bootstrap"
-end
