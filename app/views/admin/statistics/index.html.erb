@@ -1,0 +1,48 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+<div class="col-md-12">
+  <div class="read">
+    <p class="title">
+      <%= t ".total_book"%> (<%= @books.count %>)
+    </p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th><%= t ".stt" %></th>
+          <th><%= t ".name" %></th>
+          <th><%= t ".total" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @categories.each_with_index do |category, index| %>
+          <tr>
+            <td>
+              <%= create_index params[:page], index,
+                Settings.per_page %>
+            </td>
+            <td><%= category.title %></td>
+            <td><%= category.books.count(:category_id) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="read">
+    <p class="title"><%= t ".favorite"%></p>
+    <%= line_chart @categories.map { |category|
+      {name: category.title, data: category.books.favorite_by
+        .group(:created_at).count}
+    } %>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="read">
+    <p class="title"><%= t ".reading"%></p>
+    <%= line_chart @categories.map { |category|
+      {name: category.title, data: category.books.reading_by
+        .group(:created_at).count}
+    } %>
+  </div>
+</div>

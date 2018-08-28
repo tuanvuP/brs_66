@@ -46,6 +46,11 @@ class Book < ApplicationRecord
     .where("follows.type_follow = ? AND follows.user_id = ?",
     Follow.type_follows[:book], user.id).order(created_at: :desc)
   end)
+  scope :favorite_by, ->{joins(:favorites).where("favorites.book_id = books.id")}
+  scope :reading_by, ->{joins(:mark_books)
+    .where("mark_books.book_id = books.id AND mark_books.status =?",
+    MarkBook.statuses[:reading])}
+
   ratyrate_rateable "rating"
   mount_uploader :image, ImageUploader
 end

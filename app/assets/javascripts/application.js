@@ -19,6 +19,8 @@
 //= require ratyrate
 //= require chosen
 //= require social-share-button
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
 
 
