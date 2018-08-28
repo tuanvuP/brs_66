@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :authors, except: :destroy
     resources :books, except: :show
     resources :orders, only: %i(index update)
+    resources :statistics
   end
 
   resources :users do

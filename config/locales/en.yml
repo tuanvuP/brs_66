@@ -83,6 +83,7 @@ en:
       users: "Users"
       authors: "Authors"
       orders: "Orders"
+      statistics: "Statistics"
     footer:
       copyright: "@Coyright M,H , Book Review"
 
@@ -369,6 +370,15 @@ en:
         list_uncheck: "List uncheck orders"
         list_checked: "List checked orders"
         check: "Send notice"
+    statistics:
+      index:
+        title: "Statistics books"
+        total_book: "Total books"
+        stt: "STT"
+        name: "Name"
+        total: "Total"
+        favorite: "Category books favorited "
+        reading: "Category books reading"
 
   carts:
     load_book_in_cart:
