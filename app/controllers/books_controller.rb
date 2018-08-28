@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   before_action :load_book, except: %i(index new create)
   before_action :load_mark_book, only: :show
   before_action :list_categories, only: :index
+  before_action :load_user, only: :following_book
 
   def index
     @book_as_max_like = Book.like_max
@@ -16,6 +17,22 @@ class BooksController < ApplicationController
   def show
     @comments = @book.comments.all
     @comment = @book.comments.build
+  end
+
+  def following_book
+    @title = t ".title"
+    @books = Book.following_book(@user)
+                     .page(params[:page])
+                     .per Settings.per_page
+    render :show_book_follow
+  end
+
+  def follower_books
+    @title = t ".title"
+    @users = @book.follower_books
+                  .page(params[:page])
+                  .per Settings.per_page
+    render :show_follow_book
   end
 
   private

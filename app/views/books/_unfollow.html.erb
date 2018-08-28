@@ -1,0 +1,6 @@
+<%= form_for(unfollow_book, as: :destroy_book, url: destroy_book_path(unfollow_book), html: { method: :delete }, remote: true) do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :type_follow, value: "book" %>
+  <%= f.hidden_field :follower_id, value: @book.id %>
+  <%= f.submit t(".submit"), id: "unfollow", class: "btn btn-default" %>
+<% end %>

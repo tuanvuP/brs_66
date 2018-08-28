@@ -1,6 +1,7 @@
 class AuthorsController < ApplicationController
   before_action :find_author, except: %i(index new create)
   before_action :find_author_book, only: :show
+  before_action :load_user, only: :following
 
   def index
     @authors = Author.list_author

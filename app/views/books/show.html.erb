@@ -45,9 +45,20 @@
       <span class="title-book"><%= @book.name %></span>
     </div>
     <div class="description">
-      <%= t ".level" %>
-      <%= @book.average("rating").present? ? @book.average("rating").avg : 0 %> -
-      <%= @book.rates("rating").count %>
+      <div class="row">
+        <%= t ".level" %>
+        <%= @book.average("rating").present? ? @book.average("rating").avg : 0 %> -
+        <%= @book.rates("rating").count %>
+        <div class="row follow-book">
+          <a href="<%= follower_books_book_path(@book) %>">
+            <strong id="followers_book" class="stat">
+              <%= @book.follower_books.count %>
+            </strong>
+            <%= t ".followers" %>
+          </a>
+          <%= render "follow_form" if user_signed_in? %>
+        </div>
+      </div>
       <hr>
       <%= @book.description %>
     </div>

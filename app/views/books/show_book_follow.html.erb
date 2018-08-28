@@ -1,0 +1,35 @@
+<% provide :title, @title %>
+<div class="row col-md-12">
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-10">
+        <span>
+          <%= image_tag @user.avatar_url.to_s, class: "avatar" %>
+        </span>
+        <span class="name-user"><%= @user.username %></span>
+      </div>
+    </div>
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
+  </div>
+  <div class="col-md-8">
+    <p class="title-favorite"><%= @title %></p>
+    <% if @books.any? %>
+      <ol class="favorite">
+        <% @books.each do |book| %>
+          <li>
+            <%= image_tag book.image_url.to_s, class: "gravatar" %>
+            <span class="user"><%= link_to book.name, book %></span>
+            <i class="timestamp">
+              <%= t ".publish" %>
+              <%= l(book.publish_date, format: :default) %>
+            </i>
+            <span class="content"><%= book.description %></span>
+          </li>
+        <% end %>
+      </ol>
+      <%= paginate @books, theme: "twitter-bootstrap-3" %>
+    <% end %>
+  </div>
+</div>
