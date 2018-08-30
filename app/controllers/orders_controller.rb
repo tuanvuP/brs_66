@@ -1,8 +1,13 @@
   class OrdersController < ApplicationController
-  before_action :logged_in_user,:check_cart, only: %i(new create)
+  before_action :logged_in_user, :check_cart, only: %i(new create)
+  before_action :find_order, only: :show
 
   def index
     @orders = Order.by_id current_user.id
+  end
+
+  def show
+    @order_details = @order.order_details.all
   end
 
   def new
@@ -33,5 +38,10 @@
   private
   def order_params
     params.require(:order).permit :full_name, :phone, :address, :user_id, :status
+  end
+
+  def find_order
+    @order = Order.find_by id: params[:id]
+    return if @order
   end
 end
