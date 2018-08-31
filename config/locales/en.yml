@@ -391,6 +391,7 @@ en:
       danger: "You don't have any book in cart"
       p1: "There are no items in your shopping cart.  Please "
       p2: " and add some items to your cart."
+      back: "Go back"
     table:
       confirm_del: "Are you sure"
       name: "Name"
@@ -414,12 +415,24 @@ en:
     index:
       title: "Order"
       your_order: "Your order"
+      stt: "STT"
+      quantity: "Quantity"
+      date: "Date"
+      active: "Active"
       total: "Total"
-      total_money: "Total order money:"
+      detail: "Detail"
       p: "You dont have any order"
       canceled: "Canceled"
     cancel:
-      cancel: "Cancel this order"
+      cancel: "Cancel"
+    show:
+      title: "Show order detail"
+      stt: "STT"
+      book: "Name"
+      quantity: "Quantity"
+      total: "Total"
+      total_money: "Total money:"
+      back: "Back"
 
   authors:
     index:
@@ -445,3 +458,7 @@ en:
     formats:
       default: "%d-%m-%Y"
       year: "%Y"
+  time:
+    formats:
+      default: "%d-%m-%Y %H:%M"
+

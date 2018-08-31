@@ -1,0 +1,34 @@
+<% provide :title, t(".title") %>
+<h2><%= t ".title" %></h2>
+<br/>
+<div class="row full-screen">
+  <div class="order-summary">
+    <div class="">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t ".book" %></th>
+            <th><%= t ".quantity" %></th>
+            <th><%= t ".total" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order_details.each do |detail| %>
+            <tr>
+              <td><%= detail.book.name %></td>
+              <td><%= detail.quantity %></td>
+              <td><%= total_each_order_detail(detail) %></td>
+            </tr>
+          <% end %>
+          <tr>
+            <th colspan="3">
+              <%= t ".total_money" %>
+              <%= @order.total %>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to t(".back"), :back, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

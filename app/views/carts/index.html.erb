@@ -9,7 +9,7 @@
 	  </div>
 	</div>
   <% else %>
-  <p class="text-center">
-    <% t ".p1" %><%= link_to "go back", root_path %><% t ".p2" %>
+  <p class="text-left">
+    <% t ".p1" %><%= link_to t(".back"), root_path, class: "btn btn-primary" %><% t ".p2" %>
   </p>
   <% end %>
