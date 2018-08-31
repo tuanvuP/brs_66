@@ -1,38 +1,54 @@
 <% provide :title, t(".title") %>
-<%= render "search" %>
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= t ".all" %></h3>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      <%= render @books %>
+<div class="owl-carousel owl-theme">
+  <% @book_carousel.each do |book| %>
+    <div class="item">
+      <%= image_tag book.image_url, class: "img-responsive" %>
+      <span class="name-book"><%= link_to book.name, book %></span>
+      <div class="cart">
+        <span class="price"><%= book.price %><%= t ".$" %></span>
+        <% if user_signed_in? && !current_user.admin? %>
+          <%= link_to add_cart_path(book) do %>
+            <i class="glyphicon glyphicon-shopping-cart"></i>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-    <%= paginate @books, theme: "twitter-bootstrap-3" %>
+  <% end %>
+</div>
+<br/>
+<%= render "search" %>
+<br/>
+<div class="panel-body">
+  <div class="read">
+    <p class="title"><%= t ".all"%></p>
   </div>
+  <div class="row">
+    <%= render @books %>
+  </div>
+  <%= paginate @books, theme: "twitter-bootstrap-3" %>
 </div>
 <div class="panel-body">
   <div class="read">
     <p class="title"><%= t ".like"%></p>
     <div class="row">
-      <% @book_as_max_like.each do |book_like| %>
+      <% @book_as_favorites.each do |book_favorite| %>
         <div class="col-md-3">
           <div class="index-book">
-            <%= image_tag book_like.image_url, class: "avatar_read" %>
+            <%= image_tag book_favorite.image_url, class: "avatar_read" %>
             <div class="content-book">
-              <%= link_to book_like.name, book_like %>
+              <%= link_to book_favorite.name, book_favorite %>
             </div>
             <div class="like-comment">
-              <%= book_like.likes.count %>
+              <%= book_favorite.likes.count %>
               <%= image_tag("like.png", class: "icon") %>
-              <%= book_like.comments.count %>
-              <%= image_tag("comment.png", class: "icon") %></br>
+              <%= book_favorite.comments.count %>
+              <%= image_tag("comment.png", class: "icon") %><br/>
             </div>
           </div>
         </div>
       <% end %>
     </div>
-    <%= paginate @book_as_max_like, theme: "twitter-bootstrap-3" %>
+    <%= paginate @book_as_favorites, theme: "twitter-bootstrap-3" %>
   </div>
 </div>
 <div class="panel-body">

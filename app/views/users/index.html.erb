@@ -1,6 +1,6 @@
 <% provide :title, t(".users") %>
 <h1><%= t ".users" %></h1>
-<div class="row col-md-12">
+<div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
     <%= form_tag users_path, method: "get", enforce_utf8: false do %>
@@ -37,12 +37,12 @@
           <%= create_index params[:page], index,
             Settings.user.per_page %>
         </td>
-        <td><%= link_to user.username, user %></td>
+        <td><%= link_to user.name ? user.name : user.username, user %></td>
         <td><%= image_tag user.avatar_url.to_s, class: "image_cm" %>
         <td><%= link_to user.email, user %></td>
         <% if current_user.admin? %>
           <td>
-            <%= link_to t(".edit"), edit_user_path(user), class: "btn btn-success" %>
+            <%= link_to t(".edit"), edit_user_registration_path(user), class: "btn btn-success" %>
           </td>
         <% end %>
       </tr>

@@ -17,10 +17,14 @@
 //= require turbolinks
 //= require jquery.raty
 //= require ratyrate
-//= require chosen
+//= require chosen-jquery
 //= require social-share-button
 //= require Chart.bundle
 //= require chartkick
+//= require owl.carousel
+//= require i18n
+//= require i18n.js
+//= require i18n/translations
 //= require_tree .
 
 

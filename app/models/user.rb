@@ -35,7 +35,7 @@ class User < ApplicationRecord
 
   class << self
     def search key
-      where("username LIKE ? OR email LIKE ?", "%#{key}%", "%#{key}%")
+      where("username LIKE ? OR email LIKE ? OR name LIKE ?", "%#{key}%", "%#{key}%", "%#{key}%")
     end
 
     def new_with_session params, session

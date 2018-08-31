@@ -79,8 +79,8 @@ body .container {
   color: $light-grey !important;
 }
 
-.navbar-nav li a:hover {
-  color: $blue !important;
+.collapse li a:hover {
+  color: $black !important;
 }
 
 .navbar-nav li.active a {
@@ -203,7 +203,7 @@ footer a:hover {
 }
 
 .show-book {
-  height: 350px;
+  height: 400px;
   width: 350px;
 }
 
@@ -243,7 +243,7 @@ footer a:hover {
 }
 
 .mark-form {
-  margin-left: 80px;
+  margin-left: 20px;
 }
 
 .full-screen{
@@ -264,11 +264,11 @@ footer a:hover {
 }
 
 .favorite_form {
-  margin-left: 40px;
+  margin-left: 80px;
 }
 
 .add-to-cart {
-  margin-left: 130px;
+  margin-left: 50px;
 }
 
 .avatar {
@@ -424,4 +424,31 @@ footer a:hover {
 
 .follow-book {
   margin-left: 150px;
+}
+
+.img-responsive {
+  width: 250px;
+  height: 150px;
+}
+
+.cart {
+  text-align: center;
+  .price {
+    color: $red;
+    font-size: 15px;
+  }
+}
+
+.author-book {
+  color: $d-grey;
+}
+
+.name-book {
+  font-size: 12px;
+  a {
+    &:hover {
+      color: $red;
+      text-decoration: none;
+    }
+  }
 }

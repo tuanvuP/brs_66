@@ -33,7 +33,7 @@
     <p class="title"><%= t ".favorite"%></p>
     <%= line_chart @categories.map { |category|
       {name: category.title, data: category.books.favorite_by
-        .group(:created_at).count}
+        .group_by_day("favorites.created_at").count}
     } %>
   </div>
 </div>
@@ -42,7 +42,7 @@
     <p class="title"><%= t ".reading"%></p>
     <%= line_chart @categories.map { |category|
       {name: category.title, data: category.books.reading_by
-        .group(:created_at).count}
+        .group_by_day("mark_books.created_at").count}
     } %>
   </div>
 </div>

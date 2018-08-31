@@ -17,14 +17,14 @@ en:
       edit:
         title: "Edit"
         current: "Currently waiting confirmation for:"
-        current_pass: "(we need your current password to confirm your changes)"
+        current_pass: "(We need your current password to confirm your changes)"
         submit: "Update"
         h: "Cancel my account"
         unhappy: "Unhappy?"
         button: "Cancel my account"
         confirm: "Are you sure?"
         back: "Back"
-        changes: "(leave blank if you don't want to change it)"
+        changes: "(Leave blank if you don't want to change it)"
         char: " characters minimum"
     sessions:
       new:
@@ -77,7 +77,7 @@ en:
       settings: "Settings"
       logout: "Logout"
       help: "Help"
-      book: "Books"
+      books: "Books"
       Cart: "Cart"
       order: "Order"
       users: "Users"
@@ -194,6 +194,7 @@ en:
       confirm: "You sure delete?"
       create: "Add new category"
       search: "Search"
+      name: "Title or description."
     new:
       title: "Create new category"
       button: "Create"
@@ -223,7 +224,7 @@ en:
       comment: "Comment"
       like: "Favorite books"
       read: "Books read many"
-      all: "All book"
+      all: "All books"
     load_book:
       danger: "Not find book!"
     comment_form:
@@ -259,9 +260,9 @@ en:
 
   mark_books:
     mark_book:
-      unread: "Unread"
-      read: "Read"
-      reading: "Reading"
+      unread: "Mark as unread"
+      read: "Mark as read"
+      reading: "Mark as reading"
 
   favorites:
     create:
@@ -313,6 +314,7 @@ en:
         phone: "Phone"
         address: "Address"
         search: "Search"
+        name: "Name's author"
       form:
         creates: "Creates"
       update:
