@@ -13,7 +13,6 @@ gem "chosen-rails"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
-gem "faker"
 gem "figaro"
 gem "groupdate"
 gem "i18n-js"
@@ -54,7 +53,11 @@ end
 group :test do
   gem "capybara", ">= 2.15", "< 4.0"
   gem "chromedriver-helper"
+  gem "factory_bot_rails"
+  gem "faker", require: false
+  gem "rspec-rails"
   gem "selenium-webdriver"
+  gem "shoulda-matchers"
 end
 
 gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)

@@ -5,14 +5,14 @@ class User < ApplicationRecord
 
   attr_accessor :remember_token
 
-  has_many :comments
-  has_many :likes
-  has_many :mark_books
-  has_many :favorites
-  has_many :orders
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :mark_books, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :orders, dependent: :destroy
   has_many :liked, through: :likes, source: :book
   has_many :favorited, through: :favorites, source: :book
-  has_many :follows
+  has_many :follows, dependent: :destroy
 
   has_many :active_follows, class_name: Follow.name, foreign_key: :user_id,
     dependent: :destroy

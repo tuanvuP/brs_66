@@ -3,7 +3,7 @@ class Order < ApplicationRecord
 
   belongs_to :user
   has_many :order_details
-  has_many :products, through: :order_details
+  has_many :books, through: :order_details
 
   validates :full_name, presence: true
   validates :phone, presence: true
